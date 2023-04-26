@@ -1,0 +1,67 @@
+.homepage-user-bar {
+  position: absolute;
+  width: min(1000px, 100vw);
+  max-height: max-content;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 0px;
+  background-color: transparent;
+  z-index: 2;
+  padding: 0px;
+  margin: 0px 0px;
+  top: 0%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.homepage-login-button {
+  max-width: max-content;
+  max-height: max-content;
+  font-size: var(--r12);
+  color: #fff;
+  font-family: var(--google-font);
+  background-color: var(--main700);
+  border: 0px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  gap: 10px;
+  transition: all 0.5s;
+}
+
+.homepage-login-button-round-left-corner {
+  border-bottom-left-radius: 10px;
+}
+.homepage-login-button-round-right-corner {
+  border-bottom-right-radius: 10px;
+}
+
+.homepage-login-button:hover {
+  background-color: var(--main100);
+  color: black;
+  cursor: pointer;
+}
+.homepage-nav-login-break {
+  height: max(80%, 80%);
+  width: max(1px, 1px);
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  background-color: #fff;
+  border-radius: 50%;
+  transform: translateY(-52%);
+}
+.homepage-login-button-logo {
+  width: max(20px, 20px);
+  height: max(20px, 20px);
+  object-fit: fill;
+  transition: all 0.25s;
+}
+.homepagehidelogo {
+  display: none;
+}
+.homepageshowlogo {
+  display: flex;
+}

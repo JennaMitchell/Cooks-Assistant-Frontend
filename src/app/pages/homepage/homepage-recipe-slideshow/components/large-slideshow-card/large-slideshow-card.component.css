@@ -1,0 +1,82 @@
+.homepage-slideshow-large-card-main-container {
+  min-width: calc((250 / var(--base) * 1rem));
+  max-width: calc((250 / var(--base) * 1rem));
+  min-height: calc((250 / var(--base) * 1rem));
+  max-height: calc(250 / var(--base) * 1rem);
+  display: grid;
+
+  grid-template-rows: 1fr max-content;
+  grid-template-columns: 1fr;
+
+  row-gap: 2.5px;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: var(--white);
+  border-radius: 10px;
+  transition: all 0.5s;
+  border: none;
+}
+
+.homepage-slideshow-large-card-image {
+  width: max(100%, 100%);
+  height: max(100%, 100%);
+  object-fit: cover;
+}
+.homepage-slideshow-large-card-title {
+  height: max-content;
+  max-height: max-content;
+  width: max(100%, 100%);
+  padding: 0px;
+  margin: 0px;
+  font-size: var(--r14);
+  font-family: var(--google-font);
+  text-align: left;
+}
+.homepage-slideshow-large-card-time-to-cook {
+  width: max(100%, 100%);
+  max-height: max-content;
+  padding: 0px;
+  margin: 0px;
+  font-size: var(--r12);
+  font-family: var(--google-font);
+  text-align: left;
+}
+.homepage-slideshow-large-card-border-break {
+  width: max(100%, 100%);
+  height: max(0px, 0px);
+  border-bottom: 2px dashed black;
+}
+.homepage-slideshow-large-card-detail-container {
+  width: max(100%, 100%);
+  max-height: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.homepage-slideshow-large-card-tag-container {
+  width: max(100%, 100%);
+  height: max-content;
+  max-height: max-content;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  position: relative;
+  gap: 10px;
+}
+.homepage-slideshow-large-card-tag-image {
+  width: max(20px, 20px);
+  height: max(20px, 20px);
+  object-fit: contain;
+}
+
+.homepage-slideshow-large-card-main-container:hover {
+  box-shadow: 0px 0px 30px black;
+}
+.homepage-slideshow-large-card-details-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  width: max(100%, 100%);
+  height: max-content;
+  max-height: max-content;
+}

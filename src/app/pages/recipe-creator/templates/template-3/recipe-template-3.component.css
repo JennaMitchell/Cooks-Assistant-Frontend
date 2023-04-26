@@ -1,0 +1,355 @@
+.recipe-template-three-main-container {
+  position: relative;
+  width: max(1000px, 1000px);
+  height: 100%;
+  max-height: max-content;
+  display: grid;
+  grid-template-columns: 1.25fr 2fr;
+  grid-template-rows: 1fr;
+  margin: 0px;
+
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  background-color: #fef6e1;
+}
+
+.recipe-template-three-directions-ingredients-top-container {
+  background-color: #333333;
+  color: white;
+  min-height: calc(800 * var(--pixelToRem));
+  height: 100%;
+  max-height: max-content;
+  width: max(100%, 100%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 60px 20px;
+  gap: 100px;
+
+  box-sizing: border-box;
+  position: relative;
+  columns: 1 / span 1;
+}
+.recipe-template-three-description-top-container {
+  min-height: 100%;
+  height: 100%;
+  max-height: 100%;
+  width: max(100%, 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: flex-start;
+  background-color: whitesmoke;
+  padding-bottom: 20px;
+  box-sizing: border-box;
+}
+.recipe-template-three-ingredients-container,
+.recipe-template-three-directions-container {
+  display: flex;
+  flex-direction: column;
+  justify-items: flex-start;
+  align-content: center;
+  background-color: transparent;
+  width: max(100%, 100%);
+  max-height: max-content;
+  gap: 10px;
+  position: relative;
+}
+.recipe-template-three-ingredients-title,
+.recipe-template-three-directions-title {
+  padding: 0px;
+  margin: 0px;
+  font-size: var(--r28);
+  font-family: var(--recipe-template-three-font);
+  color: whitesmoke;
+  text-align: center;
+  padding-bottom: calc(10 * var(--pixelToRem));
+}
+.recipe-template-three-info-text-area-container {
+  display: grid;
+  grid-template-columns: max-content 1fr max-content;
+  gap: 10px;
+  max-height: max-content;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+
+  width: max(100%, 100%);
+  padding: 0px 30px;
+  position: relative;
+}
+.recipe-template-three-text-area {
+  padding: 0px;
+  margin: 0px;
+  font-family: var(--recipe-template-three-font);
+  font-size: var(--r18);
+  color: whitesmoke;
+  text-align: left;
+  background-color: transparent;
+  border: none;
+  width: max(100%, 100%);
+  position: relative;
+  resize: none;
+}
+.recipe-template-three-directions-text-area {
+  text-align: left;
+}
+.recipe-template-three-text-area-delete-icon {
+  width: max(20px, 20px);
+  height: max(20px, 20px);
+  transition: all 1s;
+  border-radius: 50%;
+  padding: 2.5px;
+  box-sizing: border-box;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.recipe-template-three-text-area-delete-icon:hover,
+.recipe-template-three-add-text-button:hover {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+.recipe-template-three-food-image {
+  width: max(100%, 100%);
+  max-height: calc(400 * var(--pixelToRem));
+  object-fit: cover;
+}
+.recipe-template-three-recipe-title {
+  padding: 0px;
+  font-size: var(--r32);
+  font-family: var(--recipe-template-three-font);
+  color: #333333;
+  border: none;
+  background-color: transparent;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.recipe-template-three-recipe-quick-info-container {
+  width: max(100%, 100%);
+  display: grid;
+  grid-template-columns: 25px max-content 75px max-content;
+  grid-template-rows: 1fr;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  gap: 10px;
+}
+.recipe-template-three-time-to-cook-icon {
+  margin-left: 50px;
+}
+.recipe-template-three-quick-info-icon {
+  width: max(25px, 25px);
+  height: max(25px, 25px);
+
+  object-fit: contain;
+}
+.recipe-template-three-quick-info-text-area {
+  min-width: 50px;
+  width: max-content;
+  max-width: 100px;
+  font-family: var(--recipe-template-three-font);
+  font-size: var(--r16);
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+  background-color: transparent;
+}
+.recipe-template-three-description-text-area {
+  border: none;
+  background-color: transparent;
+  font-size: var(--r22);
+  padding: 20px;
+  margin: 0px;
+  width: max(100%, 100%);
+  box-sizing: border-box;
+}
+.recipe-template-three-notes-container {
+  background-color: transparent;
+
+  margin: 0px;
+  width: max(95%, 95%);
+
+  border: 1px solid black;
+  padding: 15px 20px;
+
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.recipe-template-three-notes-title {
+  font-size: var(--r22);
+  font-weight: bold;
+  padding: 0px;
+  margin: 0px;
+  color: #333333;
+  margin-bottom: 10px;
+}
+.recipe-template-three-notes-textarea {
+  font-size: var(--r16);
+  padding: 0px;
+  margin: 0px;
+  color: #333333;
+  border: none;
+  background-color: transparent;
+  font-family: var(--recipe-template-three-font);
+  text-align: left;
+}
+.recipe-template-three-add-text-button {
+  position: absolute;
+  box-sizing: border-box;
+  padding: 2.75px 2.5px 2.5px 3px;
+  width: max(20px, 20px);
+  height: max(20px, 20px);
+  background-color: white;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: none;
+  transition: all 0.5s;
+}
+.recipe-template-three-add-text-button-ingredients {
+  top: 5px;
+  right: 10px;
+}
+.recipe-template-three-add-text-button-directions {
+  top: 5px;
+  right: 10px;
+}
+
+.recipe-template-three-tags-container {
+  position: absolute;
+  top: 20px;
+  right: 380px;
+  border: 2px solid white;
+
+  width: max(225px, 225px);
+  min-height: 50px;
+  height: max-content;
+  max-height: 100px;
+  overflow-y: scroll;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  background-color: #333333;
+  padding: 15px 10px 10px 10px;
+  box-sizing: border-box;
+}
+.recipe-template-three-tags-title {
+  position: absolute;
+  top: -7.5px;
+  right: 550px;
+  z-index: 2;
+  color: white;
+  font-family: var(--recipe-template-three-font);
+  font-size: var(--r18);
+  background-color: #333333;
+  padding: 2.5px 5px;
+}
+.recipe-template-three-tag {
+  background-color: white;
+  color: #333333;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  height: max-content;
+  max-height: max-content;
+  width: max-content;
+  max-width: max-content;
+  padding: 5px;
+  box-sizing: border-box;
+}
+.recipe-template-three-tag-text {
+  font-family: var(--recipe-template-three-font);
+  font-size: var(--r12);
+  color: inherit;
+  background-color: inherit;
+  padding: 0px;
+  margin: 0px;
+}
+.recipe-template-three-delete-tag-button {
+  width: max(20px, 20px);
+  height: max(20px, 20px);
+  padding: 2.75px 2.5px 2.5px 3px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  color: #333333;
+  border-radius: 50%;
+  transition: all 0.25s;
+}
+
+.recipe-template-three-delete-tag-button:hover {
+  background-color: #333333;
+  color: white;
+  cursor: pointer;
+}
+.recipe-template-three-closing-icon {
+  width: max(100%, 100%);
+  height: max(100%, 100%);
+
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: inherit;
+  color: inherit;
+}
+.recipe-template-three-tags-edit-button {
+  top: 12.5px;
+  right: 390px;
+}
+.recipe-template-three-photo-edit-button {
+  top: 10px;
+  right: 10px;
+}
+.recipe-template-three-edit-button {
+  width: max(22.5px, 22.5px);
+  height: max(22.5px, 22.5px);
+  padding: 5px;
+  position: absolute;
+  background-color: white;
+  color: #333333;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  transition: all 0.25s;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.recipe-template-three-edit-button:hover {
+  background-color: #333333;
+  cursor: pointer;
+}
+.recipe-template-three-edit-button-icon {
+  width: max(100%, 100%);
+  height: max(100%, 100%);
+  object-fit: cover;
+  display: inline;
+}
+.recipe-template-three-text-area-index {
+  margin: 0px;
+  padding: 0px;
+  font-family: var(--recipe-template-three-font);
+  font-size: var(--r16);
+  align-self: flex-start;
+}

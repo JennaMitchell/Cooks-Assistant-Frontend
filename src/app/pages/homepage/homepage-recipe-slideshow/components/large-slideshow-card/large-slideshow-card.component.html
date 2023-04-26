@@ -1,0 +1,28 @@
+<button
+  class="homepage-slideshow-large-card-main-container"
+  (click)="cardClickHandler()"
+>
+  <img
+    src="{{ imageUrl }}"
+    alt="{{ title }}"
+    class="homepage-slideshow-large-card-image"
+  />
+
+  <div class="homepage-slideshow-large-card-details-container">
+    <p class="homepage-slideshow-large-card-title">{{ title }}</p>
+    <div class="homepage-slideshow-large-card-border-break"></div>
+    <div class="homepage-slideshow-large-card-detail-container">
+      <p class="homepage-slideshow-large-card-time-to-cook">
+        Time: {{ cookingTime.trim() }}
+      </p>
+      <div class="homepage-slideshow-large-card-tag-container">
+        <img
+          *ngFor="let tagData of tagsImageArray"
+          src="{{ tagData.iconLocation }}"
+          alt="tag"
+          class="homepage-slideshow-large-card-tag-image"
+        />
+      </div>
+    </div>
+  </div>
+</button>

@@ -1,0 +1,91 @@
+<div class="homepage-new-recipe-slideshow-backdrop">
+  <img
+    class="homepage-new-recipe-slideshow-backdropImage"
+    *ngIf="displayData.length !== 0"
+    src="
+    {{
+      dishImagesData[
+        displayData[currentlySelectedRecipeNumber].selectedRecipeDishImageIndex
+      ].imageLocation
+    }}
+  "
+    alt="backdrop image"
+  />
+
+  <homepage-full-slideshow-recipe-card
+    *ngIf="displayData.length !== 0"
+    recipeTitle="{{ displayData[currentlySelectedRecipeNumber].title }}"
+    [recipeTags]="displayData[currentlySelectedRecipeNumber].tags"
+    recipeDescription="{{ displayData[currentlySelectedRecipeNumber].quote }}"
+    numberOfMakes="{{ displayReadyNumberOfMakes }}"
+    numberOfReviews="{{ displayReadyNumberOfReviews }}"
+    cookingTime="{{ displayReadyCookingTime }}"
+    [postiveRatingArray]="postiveRatingArray"
+    [negativeRatingArray]="negativeRatingArray"
+    [halfStarActive]="halfStarActive"
+    iconLocation="{{ iconLocation }}"
+    iconAltText="{{ iconAltText }}"
+    slideshowType="{{ slideShowType }}"
+    (click)="makeButtonClick()"
+  ></homepage-full-slideshow-recipe-card>
+
+  <div class="homepage-new-recipe-slideshow-slide-tracker">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="w-6 h-6 homepage-new-recipe-slideshow-slide-tracker-arrow-button"
+      (click)="onLeftArrowClick()"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M15.75 19.5L8.25 12l7.5-7.5"
+      />
+    </svg>
+
+    <button
+      class="homepage-new-recipe-slideshow-slide-tracker-button homepage-new-recipe-slideshow-slide-tracker-button-active"
+      id="homepage-new-recipe-slideshow-left-tracker-button"
+    ></button>
+
+    <p
+      class="homepage-new-recipe-slideshow-slide-tracker-dots"
+      *ngIf="rightDotsActive"
+    >
+      ...
+    </p>
+    <button
+      class="homepage-new-recipe-slideshow-slide-tracker-button"
+      id="homepage-new-recipe-slideshow-center-tracker-button"
+      *ngIf="middleSlideActive"
+    ></button>
+    <p
+      class="homepage-new-recipe-slideshow-slide-tracker-dots"
+      *ngIf="leftDotsActive"
+    >
+      ...
+    </p>
+    <button
+      class="homepage-new-recipe-slideshow-slide-tracker-button"
+      id="homepage-new-recipe-slideshow-right-tracker-button"
+    ></button>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="w-6 h-6 homepage-new-recipe-slideshow-slide-tracker-arrow-button"
+      (click)="onRightArrowClick()"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M8.25 4.5l7.5 7.5-7.5 7.5"
+      />
+    </svg>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+.homepage-cuisine-section-main-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  background-position: center;
+
+  background-size: contain;
+  background-image: url("../../../../assets/images/homepage/morocco-blue.png");
+
+  max-width: calc(700 / var(--base) * 1rem);
+  min-width: calc(700 / var(--base) * 1rem);
+  min-height: calc(375 / var(--base) * 1rem);
+  max-height: calc(375 / var(--base) * 1rem);
+  grid-column: 1 / span 1;
+  grid-row: 2 / span 1;
+}
+.homepage-cuisine-section-small-slides-container {
+  height: max(100%, 100%);
+  max-width: max-content;
+  display: grid;
+  grid-template-columns: max-content max-content;
+  grid-template-rows: max-content max-content;
+  align-items: space-evenly;
+  justify-content: space-evenly;
+  gap: 10px;
+}

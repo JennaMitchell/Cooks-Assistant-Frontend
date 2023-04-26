@@ -1,0 +1,107 @@
+.recipe-browser-backdrop {
+  min-height: 100vh;
+  height: max-content;
+  max-height: max-content;
+  max-width: 100vw;
+  min-width: 100vw;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  padding: 50px 0px;
+  margin: 0px;
+  overflow: hidden;
+  box-sizing: border-box;
+  background-image: url("../../../assets/images/recipe-creator/backdrops/silver-metallic-textured-background.jpg");
+}
+.recipe-browser-main-container {
+  background-color: var(--lightwhite);
+  min-width: 740px;
+  width: max-content;
+  max-width: max-content;
+  height: 100%;
+  max-height: max-content;
+  border-radius: 10px;
+  position: relative;
+
+  margin: 0px auto;
+  box-shadow: 0px 0px 40px black;
+  align-items: center;
+  justify-content: center;
+  display: grid;
+
+  grid-template-columns: repeat(3, max-content);
+  grid-template-rows: repeat(3, minmax(180px, max-content));
+
+  overflow-x: hidden;
+  gap: 30px;
+  box-sizing: border-box;
+  padding: 45px 30px;
+}
+.recipe-browser-nav-menu-button {
+  position: fixed;
+  top: 50px;
+  left: 0px;
+
+  border: none;
+  background-color: var(--main800);
+  box-shadow: 0px 0px 10px black;
+  width: max(40px, 40px);
+  height: max(40px, 40px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7.5px;
+  box-sizing: border-box;
+  color: white;
+  transition: all 0.5s;
+  z-index: 1;
+}
+
+.recipe-browser-nav-menu-button-moved-out {
+  left: 250px;
+}
+.recipe-browser-nav-menu-button:hover {
+  background-color: white;
+  box-shadow: 0px 0px 10px black;
+  color: var(--main800);
+  cursor: pointer;
+}
+.recipe-browser-nav-menu-icon {
+  width: max(100%, 100%);
+  height: max(100%, 100%);
+  object-fit: cover;
+}
+.delete-temp-get-data-button {
+  position: fixed;
+  top: 20px;
+  left: 200px;
+  font-size: var(--r22);
+  font-family: var(--google-font);
+  padding: 10px 20px;
+  background-color: var(--main800);
+  color: white;
+}
+.recipe-browser-no-data-found {
+  color: black;
+  padding: 0px;
+  margin: 0px;
+  font-size: var(--r20);
+  font-family: var(--google-font);
+  justify-self: flex-start;
+  align-self: flex-start;
+}
+@media (max-width: 1000px) {
+  .recipe-browser-backdrop {
+    width: max-content;
+    max-width: max-content;
+    box-sizing: border-box;
+    padding: 50px 40px;
+  }
+  .recipe-browser-main-container {
+    width: max-content;
+    max-width: max-content;
+    min-width: max-content;
+  }
+}

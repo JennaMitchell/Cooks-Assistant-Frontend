@@ -1,0 +1,91 @@
+.search-popup-backdrop {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: max(100vw, 100vw);
+  height: max(100vh, 100vh);
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: var(--search-popup-backdrop-z-index);
+}
+.search-popup-main-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: max(70vw, 70vw);
+  max-height: max-content;
+  background-color: white;
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+  z-index: var(--search-popup-main-container-z-index);
+  padding: 20px 20px 20px 20px;
+  box-sizing: border-box;
+  gap: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px black;
+}
+.search-popup-input-container {
+  width: max(100%, 100%);
+  height: max(35px, 35px);
+  display: flex;
+
+  align-content: center;
+  justify-content: center;
+  color: var(--main600);
+
+  border: 2px solid var(--main600);
+  box-sizing: border-box;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.search-popup-input-container-active {
+  outline: 2px solid blue;
+  border: 2px solid blue;
+  color: blue;
+}
+.search-popup-input-icon {
+  width: max(25px, 25px);
+  height: max(25px, 25px);
+  color: inherit;
+}
+.search-popup-search-input {
+  width: max(100%, 100%);
+  height: max(100%, 100%);
+  outline: none;
+  border: none;
+  color: black;
+  font-family: var(--google-font);
+  font-size: var(--r16);
+}
+
+.search-popup-closing-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  border-radius: 50%;
+  background-color: var(--main600);
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  width: max(15px, 15px);
+  height: max(15px, 15px);
+  padding: 1.5px 0.5px 1.5px 0.5px;
+  box-sizing: border-box;
+  border: 0px;
+  color: var(--white);
+  transition: all 0.5s;
+}
+.search-popup-closing-button-icon {
+  color: inherit;
+  width: max(100%, 100%);
+  height: max(100%, 100%);
+  transition: all 1s;
+}
+.search-popup-closing-button:hover {
+  color: black;
+  background-color: var(--main200);
+  cursor: pointer;
+}

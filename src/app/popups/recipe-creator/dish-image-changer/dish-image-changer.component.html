@@ -1,0 +1,59 @@
+<div class="dish-image-changer-backdrop">
+  <div class="dish-image-changer-popup-main-container">
+    <button
+      class="dish-image-changer-popup-closing-button"
+      (click)="closingButtonHandler()"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6 dish-image-changer-popup-closing-button-icon"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 18L18 6M6 6l12 12"
+        />
+      </svg>
+    </button>
+    <p class="dish-image-changer-popup-title">Image Selector</p>
+    <img
+      src="../../../../assets/images/chalk-highlights/chalk-underline.png"
+      alt="underline"
+      class="dish-image-changer-popup-title-underline"
+    />
+    <div class="dish-image-changer-choice-button-container">
+      <button
+        class="dish-image-changer-image-choice-button"
+        *ngFor="
+          let dishImagesDataEntry of dishImagesData;
+          let tempDishImagesDataIndex = index
+        "
+        [id]="dishImageDataIds[tempDishImagesDataIndex]"
+        [ngClass]="{
+          'dish-image-changer-image-choice-button-active':
+            activeImageButton === tempDishImagesDataIndex
+        }"
+        (click)="dishImageButtonClickHandler($event)"
+      >
+        <img
+          class="dish-image-changer-choice-image"
+          [src]="dishImagesDataEntry.imageLocation"
+          [alt]="dishImagesDataEntry.altText"
+        />
+      </button>
+    </div>
+
+    <button
+      class="dish-image-changer-submit-button"
+      [disabled]="activeImageButton === -1"
+      [ngClass]="{ disableButton: activeImageButton === -1 }"
+      (click)="submitButtonHandler()"
+    >
+      Submit
+    </button>
+  </div>
+</div>

@@ -1,0 +1,777 @@
+<div
+  class="recipe-browser-nav-menu"
+  [ngClass]="{ 'recipe-browser-nav-menu-moved-out': menuMoveOut }"
+>
+  <p class="recipe-browser-nav-menu-title">Menu</p>
+  <img
+    class="recipe-browser-nav-menu-title-underline"
+    alt="swoosh mark"
+    src="../../../../assets/images/chalk-highlights/chalk-underline-white.png"
+  />
+
+  <button
+    class="recipe-browser-nav-menu-category-button recipe-browser-nav-menu-first-category-button"
+    (click)="dropDownClickHandler($event)"
+    id="recipe-browser-nav-menu-category-button-preferences"
+    [ngClass]="{
+      'recipe-browser-nav-menu-category-button-active':
+        activeDropDownButton === 'preferences'
+    }"
+  >
+    <div class="recipe-browser-nav-menu-border-cover"></div>
+    Preferences
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor "
+      class="w-6 h-6 recipe-browser-nav-menu-button-icon"
+      *ngIf="activeDropDownButton !== 'preferences'"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+      />
+    </svg>
+    <svg
+      *ngIf="activeDropDownButton === 'preferences'"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="w-6 h-6 recipe-browser-nav-menu-button-icon"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M4.5 15.75l7.5-7.5 7.5 7.5"
+      />
+    </svg>
+  </button>
+  <div
+    class="recipe-browser-nav-menu-drop-down"
+    *ngIf="activeDropDownButton === 'preferences'"
+  >
+    <button
+      class="recipe-browser-nav-menu-option-button"
+      *ngFor="let entryOfPreferenceButtonData of preferenceButtonData"
+      (click)="
+        subCategoryButtonClickHandler(
+          entryOfPreferenceButtonData.title,
+          'preferences'
+        )
+      "
+      [ngClass]="{
+        'recipe-browser-nav-menu-option-button-active':
+          selectedSubDropDownsTags.includes(entryOfPreferenceButtonData.title)
+      }"
+    >
+      <div class="recipe-browser-nav-menu-border-sub-button-cover"></div>
+      <p class="recipe-browser-nav-menu-option-button-text">
+        {{ entryOfPreferenceButtonData.title }}
+      </p>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6 recipe-browser-nav-menu-option-button-icon"
+        *ngIf="
+          !selectedSubDropDownsTags.includes(entryOfPreferenceButtonData.title)
+        "
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M12 4.5v15m7.5-7.5h-15"
+        />
+      </svg>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6 recipe-browser-nav-menu-option-button-icon"
+        *ngIf="
+          selectedSubDropDownsTags.includes(entryOfPreferenceButtonData.title)
+        "
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
+      </svg>
+    </button>
+  </div>
+  <button
+    class="recipe-browser-nav-menu-category-button"
+    (click)="dropDownClickHandler($event)"
+    id="recipe-browser-nav-menu-category-button-nationality"
+  >
+    <div class="recipe-browser-nav-menu-border-cover"></div>
+    Cuisines
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor "
+      class="w-6 h-6 recipe-browser-nav-menu-button-icon"
+      *ngIf="activeDropDownButton !== 'nationality'"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+      />
+    </svg>
+    <svg
+      *ngIf="activeDropDownButton === 'nationality'"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="w-6 h-6 recipe-browser-nav-menu-button-icon"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M4.5 15.75l7.5-7.5 7.5 7.5"
+      />
+    </svg>
+  </button>
+  <div
+    class="recipe-browser-nav-menu-drop-down"
+    *ngIf="activeDropDownButton === 'nationality'"
+  >
+    <button
+      class="recipe-browser-nav-menu-option-button"
+      *ngFor="let entryOfNationalityButtonData of nationalityButtonData"
+      [ngClass]="{
+        'recipe-browser-nav-menu-option-button-active':
+          selectedSubDropDownsTags.includes(entryOfNationalityButtonData.title)
+      }"
+      (click)="
+        subCategoryButtonClickHandler(
+          entryOfNationalityButtonData.title,
+          'nationality'
+        )
+      "
+      [ngClass]="{
+        'recipe-browser-nav-menu-option-button-active':
+          selectedSubDropDownsTags.includes(entryOfNationalityButtonData.title)
+      }"
+    >
+      <div class="recipe-browser-nav-menu-border-sub-button-cover"></div>
+      <p class="recipe-browser-nav-menu-option-button-text">
+        {{ entryOfNationalityButtonData.title }}
+      </p>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6 recipe-browser-nav-menu-option-button-icon"
+        *ngIf="
+          !selectedSubDropDownsTags.includes(entryOfNationalityButtonData.title)
+        "
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M12 4.5v15m7.5-7.5h-15"
+        />
+      </svg>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6 recipe-browser-nav-menu-option-button-icon"
+        *ngIf="
+          selectedSubDropDownsTags.includes(entryOfNationalityButtonData.title)
+        "
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
+      </svg>
+    </button>
+  </div>
+  <button
+    class="recipe-browser-nav-menu-category-button recipe-browser-nav-menu-last-category-button"
+    (click)="dropDownClickHandler($event)"
+    id="recipe-browser-nav-menu-category-button-mealTimes"
+  >
+    <div class="recipe-browser-nav-menu-border-cover"></div>
+    Meal Times
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor "
+      class="w-6 h-6 recipe-browser-nav-menu-button-icon"
+      *ngIf="activeDropDownButton !== 'mealTimes'"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+      />
+    </svg>
+    <svg
+      *ngIf="activeDropDownButton === 'mealTimes'"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="w-6 h-6 recipe-browser-nav-menu-button-icon"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M4.5 15.75l7.5-7.5 7.5 7.5"
+      />
+    </svg>
+  </button>
+  <div
+    class="recipe-browser-nav-menu-drop-down"
+    *ngIf="activeDropDownButton === 'mealTimes'"
+  >
+    <button
+      class="recipe-browser-nav-menu-option-button"
+      *ngFor="let entryOfMealTimesButtonData of mealsTimesButtonData"
+      (click)="
+        subCategoryButtonClickHandler(
+          entryOfMealTimesButtonData.title,
+          'mealTimes'
+        )
+      "
+      [ngClass]="{
+        'recipe-browser-nav-menu-option-button-active':
+          selectedSubDropDownsTags.includes(entryOfMealTimesButtonData.title)
+      }"
+    >
+      <div class="recipe-browser-nav-menu-border-sub-button-cover"></div>
+      <p class="recipe-browser-nav-menu-option-button-text">
+        {{ entryOfMealTimesButtonData.title }}
+      </p>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6 recipe-browser-nav-menu-option-button-icon"
+        *ngIf="
+          !selectedSubDropDownsTags.includes(entryOfMealTimesButtonData.title)
+        "
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M12 4.5v15m7.5-7.5h-15"
+        />
+      </svg>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6 recipe-browser-nav-menu-option-button-icon"
+        *ngIf="
+          selectedSubDropDownsTags.includes(entryOfMealTimesButtonData.title)
+        "
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
+      </svg>
+    </button>
+  </div>
+
+  <button
+    class="recipe-browser-nav-menu-category-button recipe-browser-nav-menu-last-category-button"
+    (click)="dropDownClickHandler($event)"
+    id="recipe-browser-nav-menu-category-button-courses"
+  >
+    <div class="recipe-browser-nav-menu-border-cover"></div>
+    Courses
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor "
+      class="w-6 h-6 recipe-browser-nav-menu-button-icon"
+      *ngIf="activeDropDownButton !== 'courses'"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+      />
+    </svg>
+    <svg
+      *ngIf="activeDropDownButton === 'courses'"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="w-6 h-6 recipe-browser-nav-menu-button-icon"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M4.5 15.75l7.5-7.5 7.5 7.5"
+      />
+    </svg>
+  </button>
+  <div
+    class="recipe-browser-nav-menu-drop-down"
+    *ngIf="activeDropDownButton === 'courses'"
+  >
+    <button
+      class="recipe-browser-nav-menu-option-button"
+      *ngFor="let entryOfRecipeCourseTagData of recipeCourseTagData"
+      (click)="
+        subCategoryButtonClickHandler(
+          entryOfRecipeCourseTagData.title,
+          'courses'
+        )
+      "
+      [ngClass]="{
+        'recipe-browser-nav-menu-option-button-active':
+          selectedSubDropDownsTags.includes(entryOfRecipeCourseTagData.title)
+      }"
+    >
+      <div class="recipe-browser-nav-menu-border-sub-button-cover"></div>
+      <p class="recipe-browser-nav-menu-option-button-text">
+        {{ entryOfRecipeCourseTagData.title }}
+      </p>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6 recipe-browser-nav-menu-option-button-icon"
+        *ngIf="
+          !selectedSubDropDownsTags.includes(entryOfRecipeCourseTagData.title)
+        "
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M12 4.5v15m7.5-7.5h-15"
+        />
+      </svg>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6 recipe-browser-nav-menu-option-button-icon"
+        *ngIf="
+          selectedSubDropDownsTags.includes(entryOfRecipeCourseTagData.title)
+        "
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
+      </svg>
+    </button>
+  </div>
+  <button
+    class="recipe-browser-nav-menu-category-button recipe-browser-nav-menu-last-category-button"
+    (click)="dropDownClickHandler($event)"
+    id="recipe-browser-nav-menu-category-button-mainIngredient"
+  >
+    <div class="recipe-browser-nav-menu-border-cover"></div>
+    Main Ingredient
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor "
+      class="w-6 h-6 recipe-browser-nav-menu-button-icon"
+      *ngIf="activeDropDownButton !== 'mainIngredient'"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+      />
+    </svg>
+    <svg
+      *ngIf="activeDropDownButton === 'mainIngredient'"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="w-6 h-6 recipe-browser-nav-menu-button-icon"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M4.5 15.75l7.5-7.5 7.5 7.5"
+      />
+    </svg>
+  </button>
+  <div
+    class="recipe-browser-nav-menu-drop-down"
+    *ngIf="activeDropDownButton === 'mainIngredient'"
+  >
+    <button
+      class="recipe-browser-nav-menu-option-button"
+      *ngFor="let entryOfMainIngredientsData of mainIngredientsData"
+      (click)="
+        subCategoryButtonClickHandler(
+          entryOfMainIngredientsData.title,
+          'mainIngredient'
+        )
+      "
+      [ngClass]="{
+        'recipe-browser-nav-menu-option-button-active':
+          selectedSubDropDownsTags.includes(entryOfMainIngredientsData.title)
+      }"
+    >
+      <div class="recipe-browser-nav-menu-border-sub-button-cover"></div>
+      <p class="recipe-browser-nav-menu-option-button-text">
+        {{ entryOfMainIngredientsData.title }}
+      </p>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6 recipe-browser-nav-menu-option-button-icon"
+        *ngIf="
+          !selectedSubDropDownsTags.includes(entryOfMainIngredientsData.title)
+        "
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M12 4.5v15m7.5-7.5h-15"
+        />
+      </svg>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6 recipe-browser-nav-menu-option-button-icon"
+        *ngIf="
+          selectedSubDropDownsTags.includes(entryOfMainIngredientsData.title)
+        "
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
+      </svg>
+    </button>
+  </div>
+  <button
+    class="recipe-browser-nav-menu-category-button recipe-browser-nav-menu-last-category-button"
+    (click)="dropDownClickHandler($event)"
+    id="recipe-browser-nav-menu-category-button-search"
+  >
+    <div class="recipe-browser-nav-menu-border-cover"></div>
+    Search
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor "
+      class="w-6 h-6 recipe-browser-nav-menu-button-icon"
+      *ngIf="activeDropDownButton !== searchString"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+      />
+    </svg>
+    <svg
+      *ngIf="activeDropDownButton === searchString"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="w-6 h-6 recipe-browser-nav-menu-button-icon"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M4.5 15.75l7.5-7.5 7.5 7.5"
+      />
+    </svg>
+  </button>
+  <div
+    class="recipe-browser-nav-menu-drop-down recipe-browser-search-dropdown-container"
+    *ngIf="activeDropDownButton === 'search'"
+  >
+    <div
+      class="recipe-browser-search-input-container"
+      (click)="searchInputContainerClickHandler()"
+      [ngClass]="{
+        'recipe-browser-search-input-container-active':
+          searchInputContainerActive
+      }"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6 recipe-browser-search-input-icon"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+        />
+      </svg>
+
+      <input
+        class="recipe-browser-search-input"
+        (keypress)="searchInputEnterKeyPressHandler($event)"
+        maxlength="25"
+      />
+    </div>
+  </div>
+  <button
+    class="recipe-browser-nav-menu-category-button recipe-browser-nav-menu-last-category-button"
+    (click)="dropDownClickHandler($event)"
+    id="recipe-browser-nav-menu-category-button-ratings"
+  >
+    <div class="recipe-browser-nav-menu-border-cover"></div>
+    Ratings
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor "
+      class="w-6 h-6 recipe-browser-nav-menu-button-icon"
+      *ngIf="activeDropDownButton !== 'ratings'"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+      />
+    </svg>
+    <svg
+      *ngIf="activeDropDownButton === 'ratings'"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="w-6 h-6 recipe-browser-nav-menu-button-icon"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M4.5 15.75l7.5-7.5 7.5 7.5"
+      />
+    </svg>
+  </button>
+  <div
+    class="recipe-browser-nav-menu-drop-down recipe-browser-search-dropdown-container"
+    *ngIf="activeDropDownButton === 'ratings'"
+  >
+    <button
+      class="recipe-browser-nav-menu-ratings-star-button"
+      id="{{ starRatingsObject['one'].id }}"
+      (click)="ratingButtonClickHandler($event)"
+      [ngClass]="{
+        'recipe-browser-nav-menu-ratings-star-button-active': activeRating === 1
+      }"
+    >
+      <img
+        class="recipe-browser-nav-menu-star-icon"
+        alt="full star rating icon"
+        src="../../../../assets/images/rating-star/full-star-rating.png"
+      />
+
+      <img
+        class="recipe-browser-nav-menu-star-icon"
+        alt="empty star rating icon"
+        src="../../../../assets/images/rating-star/empty-star-rating.png"
+      />
+      <img
+        class="recipe-browser-nav-menu-star-icon"
+        alt="empty star rating icon"
+        src="../../../../assets/images/rating-star/empty-star-rating.png"
+      />
+      <img
+        class="recipe-browser-nav-menu-star-icon"
+        alt="empty star rating icon"
+        src="../../../../assets/images/rating-star/empty-star-rating.png"
+      />
+      <img
+        class="recipe-browser-nav-menu-star-icon"
+        alt="empty star rating icon"
+        src="../../../../assets/images/rating-star/empty-star-rating.png"
+      />
+    </button>
+    <button
+      class="recipe-browser-nav-menu-ratings-star-button"
+      id="{{ starRatingsObject['two'].id }}"
+      (click)="ratingButtonClickHandler($event)"
+      [ngClass]="{
+        'recipe-browser-nav-menu-ratings-star-button-active': activeRating === 2
+      }"
+    >
+      <img
+        class="recipe-browser-nav-menu-star-icon"
+        alt="full star rating icon"
+        src="../../../../assets/images/rating-star/full-star-rating.png"
+      />
+      <img
+        class="recipe-browser-nav-menu-star-icon"
+        alt="full star rating icon"
+        src="../../../../assets/images/rating-star/full-star-rating.png"
+      />
+
+      <img
+        class="recipe-browser-nav-menu-star-icon"
+        alt="empty star rating icon"
+        src="../../../../assets/images/rating-star/empty-star-rating.png"
+      />
+      <img
+        class="recipe-browser-nav-menu-star-icon"
+        alt="empty star rating icon"
+        src="../../../../assets/images/rating-star/empty-star-rating.png"
+      />
+      <img
+        class="recipe-browser-nav-menu-star-icon"
+        alt="empty star rating icon"
+        src="../../../../assets/images/rating-star/empty-star-rating.png"
+      />
+    </button>
+
+    <button
+      class="recipe-browser-nav-menu-ratings-star-button"
+      id="{{ starRatingsObject['three'].id }}"
+      (click)="ratingButtonClickHandler($event)"
+      [ngClass]="{
+        'recipe-browser-nav-menu-ratings-star-button-active': activeRating === 3
+      }"
+    >
+      <img
+        class="recipe-browser-nav-menu-star-icon"
+        alt="full star rating icon"
+        src="../../../../assets/images/rating-star/full-star-rating.png"
+      />
+      <img
+        class="recipe-browser-nav-menu-star-icon"
+        alt="full star rating icon"
+        src="../../../../assets/images/rating-star/full-star-rating.png"
+      />
+
+      <img
+        class="recipe-browser-nav-menu-star-icon"
+        alt="full star rating icon"
+        src="../../../../assets/images/rating-star/full-star-rating.png"
+      />
+
+      <img
+        class="recipe-browser-nav-menu-star-icon"
+        alt="empty star rating icon"
+        src="../../../../assets/images/rating-star/empty-star-rating.png"
+      />
+      <img
+        class="recipe-browser-nav-menu-star-icon"
+        alt="empty star rating icon"
+        src="../../../../assets/images/rating-star/empty-star-rating.png"
+      />
+    </button>
+
+    <button
+      class="recipe-browser-nav-menu-ratings-star-button"
+      id="{{ starRatingsObject['four'].id }}"
+      (click)="ratingButtonClickHandler($event)"
+      [ngClass]="{
+        'recipe-browser-nav-menu-ratings-star-button-active': activeRating === 4
+      }"
+    >
+      <img
+        class="recipe-browser-nav-menu-star-icon"
+        alt="full star rating icon"
+        src="../../../../assets/images/rating-star/full-star-rating.png"
+      />
+
+      <img
+        class="recipe-browser-nav-menu-star-icon"
+        alt="full star rating icon"
+        src="../../../../assets/images/rating-star/full-star-rating.png"
+      />
+
+      <img
+        class="recipe-browser-nav-menu-star-icon"
+        alt="full star rating icon"
+        src="../../../../assets/images/rating-star/full-star-rating.png"
+      />
+
+      <img
+        class="recipe-browser-nav-menu-star-icon"
+        alt="full star rating icon"
+        src="../../../../assets/images/rating-star/full-star-rating.png"
+      />
+
+      <img
+        class="recipe-browser-nav-menu-star-icon"
+        alt="empty star rating icon"
+        src="../../../../assets/images/rating-star/empty-star-rating.png"
+      />
+    </button>
+
+    <button
+      class="recipe-browser-nav-menu-ratings-star-button"
+      id="{{ starRatingsObject.five.id }}"
+      (click)="ratingButtonClickHandler($event)"
+      [ngClass]="{
+        'recipe-browser-nav-menu-ratings-star-button-active': activeRating === 5
+      }"
+    >
+      <img
+        class="recipe-browser-nav-menu-star-icon"
+        alt="full star rating icon"
+        src="../../../../assets/images/rating-star/full-star-rating.png"
+      />
+      <img
+        class="recipe-browser-nav-menu-star-icon"
+        alt="full star rating icon"
+        src="../../../../assets/images/rating-star/full-star-rating.png"
+      />
+      <img
+        class="recipe-browser-nav-menu-star-icon"
+        alt="full star rating icon"
+        src="../../../../assets/images/rating-star/full-star-rating.png"
+      />
+      <img
+        class="recipe-browser-nav-menu-star-icon"
+        alt="full star rating icon"
+        src="../../../../assets/images/rating-star/full-star-rating.png"
+      />
+      <img
+        class="recipe-browser-nav-menu-star-icon"
+        alt="full star rating icon"
+        src="../../../../assets/images/rating-star/full-star-rating.png"
+      />
+    </button>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="template-selector-backdrop">
+  <div class="template-selector-main-container">
+    <button
+      class="template-selector-popup-closing-button"
+      (click)="closingButtonHandler()"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6 template-selector-popup-closing-button-icon"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 18L18 6M6 6l12 12"
+        />
+      </svg>
+    </button>
+    <p class="template-selector-popup-title">Select a Template</p>
+    <img
+      src="../../../../assets/images/chalk-highlights/chalk-underline.png"
+      alt="underline"
+      class="template-selector-popup-title-underline"
+    />
+
+    <div class="template-selector-recipe-template-photo-containers">
+      <button
+        class="template-selector-template-button"
+        *ngFor="let imageLocationData of recipeTemplatesImageData"
+        id="{{ imageLocationData.id }}"
+        style.backgroundImage="{{ imageLocationData.imageLocation }}"
+        (click)="recipeTemplateSelectorButtonHandler($event)"
+      ></button>
+    </div>
+
+    <button
+      class="template-selector-submit-button"
+      [ngClass]="{
+        'template-selector-submit-button-disabled':
+          submitButtonEnabled === false
+      }"
+      [disabled]="!submitButtonEnabled"
+      (click)="submitButtonHandler()"
+      (mouseenter)="submitButtonHoverHandler($event)"
+      (mouseleave)="submitButtonHoverHandler($event)"
+    >
+      Submit
+    </button>
+  </div>
+</div>

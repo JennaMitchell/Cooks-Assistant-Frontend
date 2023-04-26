@@ -1,0 +1,101 @@
+<div class="homepage-nav-bar">
+  <button class="homepage-nav-button-no-hover homepage-nav-bar-logo-button">
+    <img
+      alt="logo"
+      src="assets/images/logo/logo.png"
+      class="homepage-nav-button-logo"
+    />
+    <div class="homepage-nav-logo-text-stack-container">
+      <p class="homepage-logo-text-stack">Cooks</p>
+      <p class="homepage-logo-text-stack">Assistant</p>
+    </div>
+    <div class="homepage-nav-button-border"></div>
+  </button>
+
+  <button
+    class="homepage-nav-button"
+    (mouseenter)="onRecipeButtonHover()"
+    (mouseleave)="onRecipeButtonHover()"
+    routerLink="../recipe-browser"
+  >
+    <div class="homepage-nav-button-stack-recipe">
+      <img
+        src="assets/images/chalk-highlights/chalk-board-highlight-black.png"
+        alt="Chalk Button Highlight"
+        class="homepage-nav-button-highlight"
+        [ngClass]="{
+          homepagehidechalk: recipesButtonHover === false,
+          homepageshowchalk: recipesButtonHover === true
+        }"
+      />
+      <p class="homepage-nav-button-text">Recipes</p>
+    </div>
+
+    <div class="homepage-nav-button-border"></div>
+  </button>
+
+  <button
+    class="homepage-nav-button"
+    (mouseenter)="onCategoriesButtonHover()"
+    (mouseleave)="onCategoriesButtonHover()"
+    (click)="popupButtonClickHandler()"
+  >
+    <div class="homepage-nav-button-stack-recipe">
+      <img
+        src="assets/images/chalk-highlights/chalk-board-highlight-black.png"
+        alt="Chalk Button Highlight"
+        class="homepage-nav-button-highlight"
+        [ngClass]="{
+          homepagehidechalk: categoriesButtonHover === false,
+          homepageshowchalk: categoriesButtonHover === true
+        }"
+      />
+      <p class="homepage-nav-button-text">Popular</p>
+    </div>
+
+    <div class="homepage-nav-button-border"></div>
+  </button>
+
+  <button
+    class="homepage-nav-button"
+    (mouseenter)="onPopularButtonHover()"
+    (mouseleave)="onPopularButtonHover()"
+    (click)="categoryButtonClickHandler()"
+  >
+    <div class="homepage-nav-button-stack-recipe">
+      <img
+        src="assets/images/chalk-highlights/chalk-board-highlight-black.png"
+        alt="Chalk Button Highlight"
+        class="homepage-nav-button-highlight"
+        [ngClass]="{
+          homepagehidechalk: popularButtonHover === false,
+          homepageshowchalk: popularButtonHover === true
+        }"
+      />
+      <p class="homepage-nav-button-text">Categories</p>
+    </div>
+
+    <div class="homepage-nav-button-border"></div>
+  </button>
+
+  <button
+    class="homepage-nav-button"
+    a
+    (mouseenter)="onSearchButtonHover()"
+    (mouseleave)="onSearchButtonHover()"
+    (click)="searchButtonClickHandler()"
+  >
+    <div class="homepage-nav-button-stack-recipe">
+      <img
+        src="assets/images/chalk-highlights/chalk-board-highlight-black.png"
+        alt="Chalk Button Highlight"
+        class="homepage-nav-button-highlight"
+        [ngClass]="{
+          homepagehidechalk: searchButtonHover === false,
+          homepageshowchalk: searchButtonHover === true
+        }"
+      />
+      <p class="homepage-nav-button-text">Search</p>
+    </div>
+  </button>
+</div>

@@ -1,0 +1,50 @@
+<div class="homepage-cuisine-section-main-container">
+  <large-slideshow-cuisine-card
+    *ngIf="displayData[0]"
+    imageUrl="{{
+      dishImagesData[displayData[0].selectedRecipeDishImageIndex].imageLocation
+    }}"
+    title="{{ displayData[0].title }}"
+    cookingTime="{{ displayData[0].cookingTime }}"
+    [tagsImageArray]="renderReadyIcons"
+    recipeId="{{ displayData[0]._id }}"
+  ></large-slideshow-cuisine-card>
+  <div class="homepage-cuisine-section-small-slides-container">
+    <small-slideshow-cuisine-card
+      *ngIf="activeSlides[1]"
+      imageUrl="{{
+        dishImagesData[displayData[1].selectedRecipeDishImageIndex]
+          .imageLocation
+      }}"
+      title="{{ displayData[1].title }}"
+      recipeId="{{ displayData[1]._id }}"
+    ></small-slideshow-cuisine-card>
+    <small-slideshow-cuisine-card
+      *ngIf="activeSlides[2]"
+      imageUrl="{{
+        dishImagesData[displayData[2].selectedRecipeDishImageIndex]
+          .imageLocation
+      }}"
+      title="{{ displayData[2].title }}"
+      recipeId="{{ displayData[2]._id }}"
+    ></small-slideshow-cuisine-card>
+    <small-slideshow-cuisine-card
+      *ngIf="activeSlides[3]"
+      imageUrl="{{
+        dishImagesData[displayData[3].selectedRecipeDishImageIndex]
+          .imageLocation
+      }}"
+      title="{{ displayData[3].title }}"
+      recipeId="{{ displayData[3]._id }}"
+    ></small-slideshow-cuisine-card>
+    <small-slideshow-cuisine-card
+      *ngIf="activeSlides[4]"
+      imageUrl="{{
+        dishImagesData[displayData[4].selectedRecipeDishImageIndex]
+          .imageLocation
+      }}"
+      title="{{ displayData[4].title }}"
+      recipeId="{{ displayData[4]._id }}"
+    ></small-slideshow-cuisine-card>
+  </div>
+</div>

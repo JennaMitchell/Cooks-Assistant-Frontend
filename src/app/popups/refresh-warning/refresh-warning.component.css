@@ -1,0 +1,84 @@
+.refresh-warning-backdrop {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: max(100vw, 100vw);
+  height: max(100vh, 100vh);
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: var(--login-popup-backdrop-z-index);
+}
+.refresh-warning-main-container {
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max(300px, 300px);
+  max-height: max-content;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  z-index: var(--login-popup-main-container-z-index);
+  padding: 10px 20px;
+  box-sizing: border-box;
+  gap: 10px;
+  box-shadow: 0 0 10px black;
+}
+.refresh-warning-text-container {
+  width: max(100%, 100%);
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+.refresh-warning-warning-text {
+  font-family: var(--google-font);
+  font-size: var(--r24);
+  color: black;
+  padding: 0px;
+  margin: 0px;
+  width: max-content;
+  max-width: 100%;
+  max-height: max-content;
+}
+.refresh-warning-text-body {
+  font-family: var(--google-font);
+  font-size: var(--r16);
+  color: black;
+  padding: 0px;
+  margin: 0px;
+  width: max-content;
+  max-width: 100%;
+  max-height: max-content;
+}
+.recipe-warning-recipe-buttons-container {
+  width: max(100%, 100%);
+  max-height: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.recipe-warning-interact-button {
+  width: max(100px, 100px);
+  font-family: var(--google-font);
+  font-size: var(--r16);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  transition: all 0.5s;
+}
+.recipe-warning-ok-button {
+  background-color: green;
+}
+.recipe-warning-ok-button:hover {
+  background-color: rgb(127, 227, 127);
+  color: black;
+}
+.recipe-warning-cancel-button {
+  background-color: red;
+}
+.recipe-warning-cancel-button:hover {
+  background-color: rgb(255, 126, 126);
+  color: black;
+}

@@ -1,0 +1,69 @@
+<div class="recipe-template-two-main-container">
+  <div class="recipe-template-two-title-half-container">
+    <div class="recipe-template-two-title-container">
+      <p class="recipe-template-two-title">{{ recipeData.title }}</p>
+      <p class="recipe-template-two-quote">{{ recipeData.quote }}</p>
+    </div>
+
+    <img
+      class="recipe-template-two-food-image"
+      [alt]="dishImagesData[recipeData.selectedRecipeDishImageIndex].altText"
+      [src]="
+        dishImagesData[recipeData.selectedRecipeDishImageIndex].imageLocation
+      "
+    />
+  </div>
+  <div class="recipe-template-two-recipe-half-container">
+    <p class="recipe-template-two-tags-title">Tags</p>
+
+    <div class="recipe-template-two-tags-container">
+      <div
+        class="recipe-template-two-tag-button"
+        *ngFor="
+          let selectedTagsEntry of recipeData.tags;
+          let indexOfSelectedTags = index
+        "
+      >
+        <p class="recipe-template-two-tag-text">{{ selectedTagsEntry }}</p>
+      </div>
+    </div>
+    <div class="recipe-template-two-info-container">
+      <p class="recipe-template-two-info-title">Ingredients</p>
+
+      <div
+        class="recipe-template-two-info-text-area-container recipe-template-viewer-text-area"
+        *ngFor="
+          let ingredientsText of recipeData.ingredientsList;
+          let ingredientIndex = index
+        "
+      >
+        <p class="recipe-template-two-text-area-index">-</p>
+        <p class="recipe-template-two-text-area">{{ ingredientsText }}</p>
+      </div>
+    </div>
+    <div class="recipe-template-two-info-container">
+      <p class="recipe-template-two-info-title">Directions</p>
+      <div
+        class="recipe-template-two-info-text-area-container recipe-template-viewer-text-area"
+        *ngFor="
+          let directionsText of recipeData.directionsList;
+          let directionIndex = index
+        "
+      >
+        <p class="recipe-template-two-text-area-index">
+          {{ directionIndex + 1 }}.
+        </p>
+        <p
+          class="recipe-template-two-text-area recipe-template-two-directions-text-area"
+        >
+          {{ directionsText }}
+        </p>
+      </div>
+    </div>
+    <img
+      class="recipe-template-two-stamp-image"
+      alt="stamp-image"
+      src="../../../../../assets/images/recipe-creator/recipe-cards/baked-shop-logo.png"
+    />
+  </div>
+</div>

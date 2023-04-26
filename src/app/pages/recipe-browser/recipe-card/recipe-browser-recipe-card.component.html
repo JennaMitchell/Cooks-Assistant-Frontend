@@ -1,0 +1,63 @@
+<div class="recipe-browser-recipe-card">
+  <a
+    class="recipe-browser-recipe-card-link-button"
+    [routerLink]="['/recipe-viewer', recipeEntry._id]"
+  >
+    <div class="recipe-browser-recipe-card-recipe-image-contianer">
+      <img
+        class="recipe-browser-recipe-card-tags-recipe-image"
+        alt="{{
+          dishImagesData[recipeEntry.selectedRecipeDishImageIndex].altText
+        }}"
+        src="{{ dishImageLocation }}"
+      />
+      <div class="recipe-browser-recipe-card-tags-container">
+        <p
+          class="recipe-browser-recipe-card-tag"
+          *ngFor="let tagsOfrecipeEntry of recipeEntry.tags"
+        >
+          {{ tagsOfrecipeEntry }}
+        </p>
+      </div>
+      <p
+        class="recipe-browser-recipe-card-tag recipe-browser-recipe-card-new-tag"
+        *ngIf="newTagActive"
+      >
+        new
+      </p>
+    </div>
+
+    <p class="recipe-browser-recipe-card-recipe-title">
+      {{ recipeEntry.title }}
+    </p>
+    <p class="recipe-browser-recipe-card-recipe-text">Recipe</p>
+    <div class="recipe-browser-recipe-card-rating-makes-container">
+      <div
+        class="recipe-browser-recipe-card-rating-container"
+        *ngIf="recipeEntry.ratings.length !== 0"
+      >
+        <p class="recipe-browser-recipe-card-recipe-text">
+          {{ averagedRating }}
+        </p>
+        <img
+          class="recipe-browser-recipe-card-user-interaction-icon"
+          alt="star icon"
+          src="assets/images/rating-star/full-star-rating.png"
+        />
+      </div>
+      <div
+        class="recipe-browser-recipe-card-number-of-makes-container"
+        *ngIf="recipeEntry.numberOfMakes !== 0"
+      >
+        <p class="recipe-browser-recipe-card-recipe-text">
+          {{ recipeEntry.numberOfMakes }}
+        </p>
+        <img
+          class="recipe-browser-recipe-card-user-interaction-icon"
+          alt="star icon"
+          src="assets/images/icons/homepage/number-of-makes-icon.png"
+        />
+      </div>
+    </div>
+  </a>
+</div>

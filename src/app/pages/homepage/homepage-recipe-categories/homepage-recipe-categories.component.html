@@ -1,0 +1,88 @@
+<div class="homepage-recipe-categories-main-container">
+  <h6 class="homepage-recipe-categories-title">Preference</h6>
+  <img
+    class="homepage-recipe-categories-underline"
+    alt="dashed-line"
+    src="assets/images/chalk-highlights/chalk-underline-white.png"
+  />
+  <div class="homepage-recipe-categories-container">
+    <button
+      class="homepage-category-button-container"
+      *ngFor="let dataEntry of preferenceButtonData; let i = index"
+      key="homepage-category-button-i"
+      id="{{ dataEntry.id }}"
+      (click)="categoryButtonClickHandler($event)"
+      [ngClass]="{
+        'homepage-category-button-container-active':
+          dataEntry.title === selectedHomepageMealPreferenceValue
+      }"
+    >
+      <img
+        class="homepage-category-button-logo"
+        alt="category-icon"
+        src="{{ dataEntry.iconLocation }}"
+      />
+      <p class="homepage-category-button-text">{{ dataEntry.title }}</p>
+    </button>
+  </div>
+
+  <h6 class="homepage-recipe-categories-sub-title">Cuisines</h6>
+
+  <img
+    class="homepage-recipe-categories-sub-underline"
+    alt="dashed-line"
+    src="assets/images/chalk-highlights/chalk-underline-white.png"
+  />
+  <div class="homepage-recipe-categories-container">
+    <button
+      class="homepage-category-button-container"
+      *ngFor="let nationalityButtonDataEntry of nationalityButtonData"
+      key="homepage-category-button-i"
+      id="{{ nationalityButtonDataEntry.id }}"
+      (click)="categoryButtonClickHandler($event)"
+      [ngClass]="{
+        'homepage-category-button-container-active':
+          nationalityButtonDataEntry.title ===
+          selectedHomepageMealNationalityValue
+      }"
+    >
+      <img
+        class="homepage-category-button-logo"
+        alt="category-icon"
+        src="{{ nationalityButtonDataEntry.iconLocation }}"
+      />
+      <p class="homepage-category-button-text">
+        {{ nationalityButtonDataEntry.title }}
+      </p>
+    </button>
+  </div>
+  <h6 class="homepage-recipe-categories-sub-title">Times</h6>
+
+  <img
+    class="homepage-recipe-categories-sub-underline"
+    alt="dashed-line"
+    src="assets/images/chalk-highlights/chalk-underline-white.png"
+  />
+  <div class="homepage-recipe-categories-container">
+    <button
+      class="homepage-category-button-container"
+      *ngFor="let mealsButtonDataEntry of mealsTimesButtonData"
+      key="homepage-category-button-i"
+      id="{{ mealsButtonDataEntry.id }}"
+      (click)="categoryButtonClickHandler($event)"
+      [ngClass]="{
+        'homepage-category-button-container-active':
+          mealsButtonDataEntry.title === selectedHomepageMealTimeValue
+      }"
+    >
+      <img
+        class="homepage-category-button-logo"
+        alt="category-icon"
+        src="{{ mealsButtonDataEntry.iconLocation }}"
+      />
+      <p class="homepage-category-button-text">
+        {{ mealsButtonDataEntry.title }}
+      </p>
+    </button>
+  </div>
+</div>

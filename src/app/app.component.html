@@ -1,0 +1,10 @@
+<div class="app" (window:beforeunload)="unloadHandler($event)">
+  <router-outlet></router-outlet>
+  <login-popup *ngIf="loginPopupActive"></login-popup>
+  <signup-popup *ngIf="signupPopupActive"></signup-popup>
+  <refresh-warning-popup
+    *ngIf="refreshWarningPopupActive"
+  ></refresh-warning-popup>
+  <error-popup *ngIf="errorMessagePopupActive"></error-popup>
+  <success-popup *ngIf="successMessagePopupActive"></success-popup>
+</div>

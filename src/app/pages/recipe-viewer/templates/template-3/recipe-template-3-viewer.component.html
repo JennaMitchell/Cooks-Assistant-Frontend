@@ -1,0 +1,105 @@
+<div class="recipe-template-three-main-container">
+  <div class="recipe-template-three-directions-ingredients-top-container">
+    <div class="recipe-template-three-ingredients-container">
+      <p class="recipe-template-three-ingredients-title">INGREDIENTS</p>
+
+      <div
+        class="recipe-template-three-info-text-area-container recipe-template-viewer-text-area"
+        *ngFor="
+          let ingredientsText of recipeData.ingredientsList;
+          let ingredientsIndex = index
+        "
+      >
+        <p class="recipe-template-three-text-area-index">-</p>
+        <p
+          class="recipe-template-three-text-area recipe-template-three-ingredients-text-area"
+        >
+          {{ ingredientsText }}
+        </p>
+      </div>
+    </div>
+    <div class="recipe-template-three-directions-container">
+      <p class="recipe-template-three-directions-title">DIRECTIONS</p>
+      <div
+        class="recipe-template-three-info-text-area-container recipe-template-viewer-text-area"
+        *ngFor="
+          let directionsText of recipeData.directionsList;
+          let directionsIndex = index
+        "
+      >
+        <p class="recipe-template-three-text-area-index">
+          {{ directionsIndex + 1 }}.
+        </p>
+        <p
+          class="recipe-template-three-text-area recipe-template-three-directions-text-area"
+        >
+          {{ directionsText }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="recipe-template-three-description-top-container">
+    <img
+      class="recipe-template-three-food-image"
+      [alt]="dishImagesData[recipeData.selectedRecipeDishImageIndex].altText"
+      [src]="
+        dishImagesData[recipeData.selectedRecipeDishImageIndex].imageLocation
+      "
+    />
+    <p class="recipe-template-three-recipe-title">{{ recipeData.title }}</p>
+    <p class="recipe-template-three-tags-title">Tags</p>
+
+    <div class="recipe-template-three-tags-container">
+      <div
+        class="recipe-template-three-tag"
+        *ngFor="
+          let selectedTagsEntry of recipeData.tags;
+          let indexOfSelectedTags = index
+        "
+      >
+        <p class="recipe-template-three-tag-text">{{ selectedTagsEntry }}</p>
+      </div>
+    </div>
+
+    <div class="recipe-template-three-recipe-quick-info-container">
+      <img
+        class="recipe-template-three-quick-info-icon"
+        alt="servings-icon"
+        src="../../../../../assets/images/icons/recipe-creator/servings/servings-icon.png"
+      />
+      <p class="recipe-template-three-quick-info-text-area">
+        {{ recipeData.servings }}
+      </p>
+      <img
+        class="recipe-template-three-quick-info-icon recipe-template-three-time-to-cook-icon"
+        alt="cooking-time-icon"
+        src="../../../../../assets/images/icons/recipe-creator/cook-time/cook-time-icon.png"
+      />
+      <p
+        class="recipe-template-three-quick-info-text-area recipe-template-three-time-to-cook"
+      >
+        {{ recipeData.cookingTime }}
+      </p>
+    </div>
+
+    <p class="recipe-template-three-description-text-area">
+      {{ recipeData.description }}
+    </p>
+
+    <div class="recipe-template-three-notes-container">
+      <p class="recipe-template-three-notes-title">Notes</p>
+
+      <div
+        class="recipe-template-three-info-text-area-container recipe-template-viewer-text-area"
+        *ngFor="let notesText of recipeData.notes; let notesIndex = index"
+      >
+        <p class="recipe-template-three-text-area-index">-</p>
+        <p
+          class="recipe-template-three-text-area recipe-template-three-notes-text-area"
+        >
+          {{ notesText }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

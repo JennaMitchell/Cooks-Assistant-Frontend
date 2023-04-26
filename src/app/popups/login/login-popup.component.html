@@ -1,0 +1,123 @@
+<div class="login-popup-backdrop">
+  <div
+    class="login-popup-main-container"
+    (click)="resetInputContainerHandler()"
+  >
+    <button class="login-popup-closing-button" (click)="closingButtonHandler()">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6 login-popup-closing-button-icon"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 18L18 6M6 6l12 12"
+        />
+      </svg>
+    </button>
+    <p class="login-popup-title">Login</p>
+    <img
+      src="../../../../assets/images/chalk-highlights/chalk-underline.png"
+      alt="underline"
+      class="login-popup-title-underline"
+    />
+    <div
+      class="login-popup-input-container"
+      (mouseenter)="inputHoverFunction($event)"
+      (mouseleave)="inputExitHoverHandler($event)"
+      id="login-popup-input-username-container"
+      (click)="inputElementClickHandler($event)"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6 login-popup-input-icon"
+        id="login-popup-username-input-icon"
+        (click)="inputElementClickHandler($event)"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"
+        />
+      </svg>
+      <label
+        for="login-popup-username-input"
+        class="login-popup-input-label"
+        id="login-popup-username-input-label"
+        (click)="inputElementClickHandler($event)"
+        >Username</label
+      >
+      <input
+        type="text"
+        id="login-popup-username-input"
+        required
+        minlength="4"
+        maxlength="12"
+        size="10"
+        class="login-popup-input"
+        (click)="inputElementClickHandler($event)"
+      />
+    </div>
+    <div
+      class="login-popup-input-container"
+      (mouseenter)="inputHoverFunction($event)"
+      (mouseleave)="inputExitHoverHandler($event)"
+      (click)="inputElementClickHandler($event)"
+      id="login-popup-input-password-container"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6 login-popup-input-icon"
+        id="login-popup-password-input-icon"
+        (click)="inputElementClickHandler($event)"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z"
+        />
+      </svg>
+
+      <label
+        for="login-popup-password-input"
+        class="login-popup-input-label"
+        id="login-popup-password-input-label"
+        (click)="inputElementClickHandler($event)"
+        >Password</label
+      >
+      <input
+        type="text"
+        id="login-popup-password-input"
+        required
+        minlength="4"
+        maxlength="12"
+        size="10"
+        class="login-popup-input"
+        (click)="inputElementClickHandler($event)"
+      />
+    </div>
+
+    <button class="login-popup-login-button">Login</button>
+    <div class="login-popup-signup-container">
+      <p class="login-popup-or-text">-or-</p>
+      <button
+        class="login-popup-signup-text-button"
+        (click)="signupButtonHandler()"
+      >
+        Signup
+      </button>
+    </div>
+  </div>
+</div>

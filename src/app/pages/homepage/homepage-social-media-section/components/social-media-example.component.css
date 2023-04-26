@@ -1,0 +1,81 @@
+.social-media-example-main-container {
+  position: relative;
+  width: max(160px, 160px);
+  height: max(100px, 100px);
+  z-index: 1;
+}
+.social-media-example-background-image {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: max(160px, 160px);
+  height: max(100px, 100px);
+  object-fit: cover;
+  z-index: 2;
+  opacity: 0.8;
+  filter: brightness(40%);
+}
+.social-media-example-thumbnail {
+  z-index: 3;
+
+  position: absolute;
+  width: max(40px, 40px);
+  height: max(40px, 40px);
+  padding: 2.5px;
+  object-fit: cover;
+  background-color: white;
+  top: 5px;
+  left: 5px;
+}
+.social-media-example-title {
+  color: var(--white);
+  font-family: var(--google-font);
+  font-size: var(--r16);
+  margin: 0px;
+  padding: 0px;
+  z-index: 3;
+  position: absolute;
+  top: 2.5px;
+  left: 55px;
+}
+.social-media-example-number-of-followers {
+  color: var(--white);
+  font-family: var(--google-font);
+  font-size: var(--r12);
+  margin: 0px;
+  padding: 0px;
+  padding: 0px;
+  z-index: 3;
+  position: absolute;
+  top: 22.5px;
+  left: 55px;
+}
+
+.social-media-example-link-button {
+  display: flex;
+  position: absolute;
+  z-index: 3;
+  bottom: 5px;
+  left: 5px;
+  width: max-content;
+  max-width: max-content;
+  max-height: max-content;
+  gap: 5px;
+  background-color: white;
+  padding: 2.5px 5px;
+  align-items: center;
+  justify-content: center;
+}
+.homepage-footer-social-media-button-logo {
+  width: calc((20 / var(--base) * 1rem));
+  max-width: calc((20 / var(--base) * 1rem));
+  height: calc((20 / var(--base) * 1rem));
+  max-height: calc((20 / var(--base) * 1rem));
+}
+.homepage-footer-social-meida-button-text {
+  color: black;
+  font-family: var(--google-font);
+  margin: 0px;
+  padding: 0px;
+  font-size: var(--r10);
+}

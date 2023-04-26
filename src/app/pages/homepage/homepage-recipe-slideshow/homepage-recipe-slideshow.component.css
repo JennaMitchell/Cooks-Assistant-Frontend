@@ -1,0 +1,47 @@
+.homepage-slideshow-backdrop {
+  width: max(1000px, 1000px);
+  min-height: calc(425 / var(--base) * 1rem);
+  height: calc(425 / var(--base) * 1rem);
+  max-height: calc(425 / var(--base) * 1rem);
+  background-image: url("../../../../assets/images/homepage/morocco-blue.png");
+  background-position: center;
+  position: relative;
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+  align-items: center;
+  justify-items: space-between;
+}
+.homepage-slideshow-button-left,
+.homepage-slideshow-button-right {
+  position: absolute;
+  top: 50%;
+
+  width: max(20px, 20px);
+  height: max(20px, 20px);
+  border: 0px;
+  background-color: black;
+  color: white;
+  z-index: 4;
+  box-shadow: 0px 0px 20px white;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7.5px;
+  box-sizing: content-box;
+  transform: translateY(-50%);
+  transition: all 1s;
+}
+.homepage-slideshow-button-left:hover,
+.homepage-slideshow-button-right:hover {
+  color: black;
+  background-color: white;
+  cursor: pointer;
+}
+.homepage-slideshow-button-left {
+  left: 0px;
+}
+.homepage-slideshow-button-right {
+  right: 0px;
+}

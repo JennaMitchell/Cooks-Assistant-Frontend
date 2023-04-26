@@ -1,0 +1,57 @@
+<div class="background-changer-backdrop">
+  <div class="background-changer-popup-main-container">
+    <button
+      class="background-changer-popup-closing-button"
+      (click)="closingButtonHandler()"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6 background-changer-popup-closing-button-icon"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 18L18 6M6 6l12 12"
+        />
+      </svg>
+    </button>
+    <p class="background-changer-popup-title">Select a Background</p>
+    <img
+      src="../../../../assets/images/chalk-highlights/chalk-underline.png"
+      alt="underline"
+      class="background-changer-popup-title-underline"
+    />
+    <div class="background-changer-choice-button-container">
+      <button
+        *ngFor="let imageEntry of importedBackgroundImageDate"
+        class="background-changer-background-choice-button"
+        id="{{ imageEntry.id }}"
+        (click)="imageButtonHandler($event)"
+      >
+        <img
+          src="{{ imageEntry.imageUrl }}"
+          class="background-changer-choice-image"
+          alt="{{ imageEntry.altText }}"
+        />
+      </button>
+    </div>
+
+    <button
+      class="background-changer-submit-button"
+      [ngClass]="{
+        'background-changer-submit-button-disabled':
+          submitButtonEnabled === false
+      }"
+      [disabled]="!submitButtonEnabled"
+      (click)="submitButtonHandler()"
+      (mouseenter)="submitButtonHoverHandler($event)"
+      (mouseleave)="submitButtonHoverHandler($event)"
+    >
+      Submit
+    </button>
+  </div>
+</div>

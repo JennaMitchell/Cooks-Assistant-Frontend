@@ -1,0 +1,57 @@
+.error-popup-main-container {
+  position: fixed;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: var(--error-popup-main-container-z-index);
+  background-color: rgb(255, 87, 87);
+  color: rgb(129, 0, 0);
+  border: 3px solid rgb(129, 0, 0);
+  padding: 5px 10px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  min-width: max-content;
+  width: max-content;
+  max-width: calc(400 * var(--pixelToRem));
+  max-height: max-content;
+}
+.error-popup-error-text {
+  font-size: var(--r20);
+  font-family: var(--google-font);
+  color: inherit;
+  width: max(100%, 100%);
+  height: max-content;
+  padding: 0px;
+  margin: 0px;
+}
+
+.error-popup-closing-button {
+  max-width: max-content;
+  width: max-content;
+  max-height: max-content;
+  padding: 0px;
+  margin: 0px;
+  border: none;
+  background-color: transparent;
+}
+.error-popup-closing-icon {
+  min-width: calc(25 * var(--pixelToRem));
+  width: calc(25 * var(--pixelToRem));
+  max-width: calc(25 * var(--pixelToRem));
+  max-height: calc(25 * var(--pixelToRem));
+  color: darkred;
+  border-radius: 50px;
+  box-sizing: border-box;
+  padding: 2.5px;
+  transition: all 0.25s;
+}
+
+.error-popup-closing-icon:hover {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}

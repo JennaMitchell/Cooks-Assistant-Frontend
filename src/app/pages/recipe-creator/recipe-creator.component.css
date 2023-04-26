@@ -1,0 +1,138 @@
+.recipe-creator-backdrop {
+  min-height: 100vh;
+  height: max-content;
+  max-height: max-content;
+  max-width: 100vw;
+  width: 100vw;
+  min-width: 100vw;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0px;
+  margin: 0px;
+  overflow-y: scroll;
+  box-sizing: content-box;
+  row-gap: 20px;
+  column-gap: 0px;
+  padding-bottom: 20px;
+  overflow-x: hidden;
+}
+.recipe-creator-backdrop-image {
+  width: max(100%, 100%);
+  height: max(100%, 100%);
+  object-fit: fill;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 2;
+}
+
+.recipe-creator-title-container {
+  width: max-content;
+  max-width: max-content;
+  max-height: max-content;
+  padding: 10px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-direction: column;
+  background-color: white;
+  box-shadow: 0px 0px 10px black;
+  z-index: 3;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+.recipe-creator-title-text {
+  font-family: var(--google-font);
+  font-size: var(--r64);
+  padding: 0px;
+  margin: 0px;
+  color: var(--main600);
+}
+.recipe-creator-title-chalk-underline {
+  width: max(100%, 100%);
+  height: max(40px, 40px);
+  object-fit: fill;
+}
+
+.recipe-creator-main-container {
+  background-color: var(--lightwhite);
+  width: max(1000px, 1000px);
+  min-height: max-content;
+  height: max-content;
+  max-height: max-content;
+  border-radius: 10px;
+  position: relative;
+  padding: 0px;
+
+  margin: 0px auto;
+  box-shadow: 0px 0px 40px black;
+  align-items: center;
+  justify-items: center;
+  display: flex;
+  flex-direction: column;
+  z-index: 3;
+
+  gap: 10px;
+}
+
+.recipe-creator-user-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc((40 / var(--base) * 1rem));
+  max-width: calc((40 / var(--base) * 1rem));
+  height: calc((40 / var(--base) * 1rem));
+  max-height: calc((40 / var(--base) * 1rem));
+
+  border-radius: 50%;
+  background-color: var(--main600);
+  position: absolute;
+  box-sizing: border-box;
+  padding: calc((9 / var(--base) * 1rem));
+  border: none;
+  box-shadow: 0px 0px 10px black;
+  transition: all 0.5s;
+  left: calc((-80 / var(--base) * 1rem));
+}
+
+.recipe-creator-user-button:hover {
+  background-color: var(--main200);
+  cursor: pointer;
+}
+
+.recipe-creator-user-button-icon {
+  object-fit: contain;
+  width: max(100%, 100%);
+  height: max(100%, 100%);
+}
+.recipe-creator-background-button {
+  top: calc((0 / var(--base) * 1rem));
+}
+.recipe-creator-card-button {
+  top: calc((60 / var(--base) * 1rem));
+}
+.recipe-creator-hide-edit-buttons {
+  top: calc((120 / var(--base) * 1rem));
+  color: white;
+}
+.recipe-creator-hide-edit-buttons:hover {
+  color: black;
+  cursor: pointer;
+}
+@media (max-width: 1000px) {
+  .recipe-creator-backdrop {
+    width: max-content;
+    max-width: max-content;
+    box-sizing: border-box;
+    padding: 50px 100px;
+  }
+  .recipe-creator-main-container {
+    width: max-content;
+    max-width: max-content;
+    min-width: max-content;
+  }
+}

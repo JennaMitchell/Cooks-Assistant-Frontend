@@ -1,0 +1,118 @@
+<div class="homepage-logged-in-user-bar">
+  <button
+    class="homepage-logged-in-nav-bar-button homepage-logged-in-nav-bar-button-round-left-corner"
+    (mouseenter)="onHomeButtonHover()"
+    (mouseleave)="onHomeButtonHover()"
+    (click)="homeButtonClickHandler()"
+  >
+    Home
+    <img
+      src="assets/images/icons/homepage/frying-pan-white.png"
+      alt="Chef Hat Logo"
+      class="homepage-logged-in-nav-bar-button-logo"
+      [ngClass]="{
+        homepagehidelogo: homeButtonHover,
+        homepageshowlogo: !homeButtonHover
+      }"
+    />
+    <img
+      src="assets/images/icons/homepage/frying-pan-black.png"
+      alt="Chef Hat Logo"
+      class="homepage-logged-in-nav-bar-button-logo"
+      [ngClass]="{
+        homepagehidelogo: !homeButtonHover,
+        homepageshowlogo: homeButtonHover
+      }"
+    />
+    <div class="homepage-nav-login-break"></div>
+  </button>
+  <button
+    class="homepage-logged-in-nav-bar-button"
+    (mouseenter)="onLogoutButtonHover()"
+    (mouseleave)="onLogoutButtonHover()"
+    (click)="logoutHandler()"
+  >
+    <img
+      src="assets/images/icons/homepage/user-white.png"
+      alt="User Icon"
+      class="homepage-logged-in-nav-bar-button-logo"
+      id="chef-hat-logo-white"
+      [ngClass]="{
+        homepagehidelogo: logoutButtonHover,
+        homepageshowlogo: !logoutButtonHover
+      }"
+    />
+    <img
+      src="assets/images/icons/homepage/user-black.png"
+      alt="User Icon"
+      class="homepage-logged-in-nav-bar-button-logo"
+      id="chef-hat-logo-black"
+      [ngClass]="{
+        homepagehidelogo: !logoutButtonHover,
+        homepageshowlogo: logoutButtonHover
+      }"
+    />
+    Logout
+
+    <div class="homepage-nav-login-break"></div>
+  </button>
+
+  <button
+    class="homepage-logged-in-nav-bar-button"
+    (mouseenter)="onRecipesButtonHover()"
+    (mouseleave)="onRecipesButtonHover()"
+    (click)="recipesButtonClickHandler()"
+  >
+    Recipes
+    <img
+      src="assets/images/icons/homepage/chef-hat-white.png"
+      alt="Chef Hat Logo"
+      class="homepage-logged-in-nav-bar-button-logo"
+      [ngClass]="{
+        homepagehidelogo: registerButtonHover === true,
+        homepageshowlogo: registerButtonHover === false
+      }"
+    />
+    <img
+      src="assets/images/icons/homepage/chef-hat-black.png"
+      alt="Chef Hat Logo"
+      class="homepage-logged-in-nav-bar-button-logo"
+      [ngClass]="{
+        homepagehidelogo: registerButtonHover === false,
+        homepageshowlogo: registerButtonHover === true
+      }"
+    />
+    <div class="homepage-nav-login-break"></div>
+  </button>
+  <a
+    class="homepage-nav-link"
+    routerLink="../recipe-creator"
+    (click)="createButtonClickHandler()"
+  >
+    <button
+      class="homepage-logged-in-nav-bar-button homepage-logged-in-nav-bar-button-round-right-corner"
+      (mouseenter)="onCreateButtonHover()"
+      (mouseleave)="onCreateButtonHover()"
+    >
+      Create
+      <img
+        src="assets/images/icons/homepage/new-recipe-icon-white.png"
+        alt="Create Logo"
+        class="homepage-logged-in-nav-bar-button-logo"
+        [ngClass]="{
+          homepagehidelogo: createButtonHover,
+          homepageshowlogo: !createButtonHover
+        }"
+      />
+      <img
+        src="assets/images/icons/homepage/new-recipe-icon.png"
+        alt="Create Logo"
+        class="homepage-logged-in-nav-bar-button-logo"
+        [ngClass]="{
+          homepagehidelogo: !createButtonHover,
+          homepageshowlogo: createButtonHover
+        }"
+      />
+    </button>
+  </a>
+</div>

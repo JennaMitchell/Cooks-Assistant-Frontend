@@ -1,0 +1,321 @@
+<div class="recipe-template-one-main-container">
+  <create-recipe-button
+    [templateData]="userEnteredTemplateData"
+    (createButtonClicked)="createButtonClicked($event)"
+  ></create-recipe-button>
+  <div class="recipe-template-one-image-container">
+    <button
+      class="recipe-template-one-photo-edit-button recipe-template-one-edit-button"
+      (click)="dishImageEditButtonHandler()"
+      (mouseenter)="editPhotoButtonMouseEnterHandler()"
+      (mouseleave)="editPhotoButtonMouseEnterHandler()"
+      *ngIf="!editButtonsActive"
+    >
+      <img
+        class="recipe-template-one-edit-button-icon"
+        alt="tags button icon"
+        src="../../../../../assets/images/icons/homepage/new-recipe-icon.png"
+        *ngIf="!editPhotoButtonMouseEnter"
+      />
+      <img
+        class="recipe-template-one-edit-button-icon"
+        alt="tags button icon"
+        src="../../../../../assets/images/icons/homepage/new-recipe-icon-white.png"
+        *ngIf="editPhotoButtonMouseEnter"
+      />
+    </button>
+    <img
+      class="recipe-template-one-food-image"
+      [alt]="
+        dishImagesData[userEnteredTemplateData.selectedRecipeDishImageIndex]
+          .altText
+      "
+      [src]="
+        dishImagesData[userEnteredTemplateData.selectedRecipeDishImageIndex]
+          .imageLocation
+      "
+    />
+    <div class="recipe-template-one-title-container">
+      <textarea
+        class="recipe-template-one-title"
+        id="recipe-template-one-recipe-title"
+        (keyup)="textAreaInputHandler($event, 'title')"
+        placeholder="Enter a Title"
+      ></textarea>
+
+      <textarea
+        class="recipe-template-one-quote-text"
+        id="recipe-template-one-recipe-quote"
+        (keyup)="textAreaInputHandler($event, 'quote')"
+        cdkTextareaAutosize
+        cdkAutosizeMinRows="1"
+        cdkAutosizeMaxRows="4"
+        matInput
+        placeholder="Enter a Quote"
+      ></textarea>
+    </div>
+  </div>
+
+  <p class="recipe-template-one-tags-title">Tags</p>
+  <button
+    class="recipe-template-one-edit-button recipe-template-one-tags-edit-button"
+    (click)="editTagsButtonHandler()"
+    (mouseenter)="editTagButtonMouseEnterHandler()"
+    (mouseleave)="editTagButtonMouseEnterHandler()"
+    *ngIf="!editButtonsActive"
+  >
+    <img
+      class="recipe-template-one-edit-button-icon"
+      alt="tags button icon"
+      src="../../../../../assets/images/icons/homepage/new-recipe-icon.png"
+      *ngIf="!editTagsButtonMouseEnter"
+    />
+    <img
+      class="recipe-template-one-edit-button-icon"
+      alt="tags button icon"
+      src="../../../../../assets/images/icons/homepage/new-recipe-icon-white.png"
+      *ngIf="editTagsButtonMouseEnter"
+    />
+  </button>
+
+  <div class="recipe-template-one-tags-container">
+    <div
+      class="recipe-template-one-tag-container"
+      *ngFor="
+        let selectedTagsEntry of selectedTags;
+        let indexOfSelectedTags = index
+      "
+    >
+      <p class="recipe-template-one-tag-text">{{ selectedTagsEntry }}</p>
+      <button
+        class="recipe-template-one-delete-tag-button"
+        [id]="selectedTagsButtonIds[indexOfSelectedTags]"
+        (click)="deleteTagButtonHandler($event)"
+        *ngIf="!editButtonsActive"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-6 h-6 recipe-template-one-closing-icon"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div class="recipe-template-one-info-container">
+    <div class="recipe-template-one-info-bar">
+      <div class="recipe-template-one-info-bar-info-container">
+        <p class="recipe-template-info-bar-info-text">SERVINGS:</p>
+        <input
+          class="recipe-template-info-bar-info-input recipe-template-info-bar-servings-input"
+          placeholder="##"
+          maxlength="3"
+          (keyup)="textAreaInputHandler($event, 'servings')"
+        />
+      </div>
+      <div class="recipe-template-one-info-bar-info-container">
+        <p class="recipe-template-info-bar-info-text">PREPPING TIME:</p>
+        <input
+          class="recipe-template-info-bar-info-input recipe-template-info-bar-prep-time-input"
+          placeholder="# MIN"
+          maxlength="16"
+          (keyup)="textAreaInputHandler($event, 'prepTime')"
+        />
+      </div>
+      <div class="recipe-template-one-info-bar-info-container">
+        <p class="recipe-template-info-bar-info-text">COOKING TIME:</p>
+        <input
+          class="recipe-template-info-bar-info-input recipe-template-info-bar-prep-time-input"
+          placeholder="# MIN"
+          maxlength="16"
+          (keyup)="textAreaInputHandler($event, 'cookingTime')"
+        />
+      </div>
+    </div>
+
+    <div class="recipe-template-one-ingredients-directions-container">
+      <div class="recipe-template-one-ingredients-container">
+        <button
+          class="recipe-template-one-add-ingredient-direction-button recipe-template-one-add-entry-button"
+          (click)="addTextAreaHandler('ingredients')"
+          *ngIf="!editButtonsActive"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6 recipe-template-one-add-button-icon"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 4.5v15m7.5-7.5h-15"
+            />
+          </svg>
+        </button>
+        <h6 class="recipe-template-one-ingredients-title">Ingredients</h6>
+        <div
+          class="recipe-template-one-text-area-container recipe-template-one-text-area-container-ingredients"
+          *ngFor="
+            let ingredientText of blankTemplateData.ingredientsList;
+            let ingredientIndex = index
+          "
+          id="{{ ingredientListIds[ingredientIndex] }}"
+        >
+          <p class="recipe-template-one-text-area-index">-</p>
+          <textarea
+            class="recipe-template-one-text-area recipe-template-one-ingredient-textarea"
+            (keyup)="textAreaInputHandler($event, 'ingredient')"
+            placeholder="Enter Ingredient"
+            >{{
+              listElementDefaultValuesWhenNewItemAddedArray.ingredients[
+                ingredientIndex
+              ]
+            }}</textarea
+          >
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6 recipe-template-one-text-area-delete-icon"
+            (click)="deleteTextAreaHandler($event, 'ingredients')"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
+            />
+          </svg>
+        </div>
+      </div>
+      <div class="recipe-template-one-direction-container">
+        <button
+          class="recipe-template-one-add-ingredient-direction-button recipe-template-one-add-entry-button"
+          (click)="addTextAreaHandler('directions')"
+          *ngIf="!editButtonsActive"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6 recipe-template-one-add-button-icon"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 4.5v15m7.5-7.5h-15"
+            />
+          </svg>
+        </button>
+        <h6 class="recipe-template-one-ingredients-title">Directions</h6>
+        <div
+          class="recipe-template-one-text-area-container recipe-template-one-text-area-container-directions"
+          *ngFor="
+            let directionsText of blankTemplateData.directionsList;
+            let directionsIndex = index
+          "
+          id="{{ directionsListIds[directionsIndex] }}"
+        >
+          <p class="recipe-template-one-text-area-index">
+            {{ directionsIndex + 1 }}.
+          </p>
+          <textarea
+            class="recipe-template-one-direction-input recipe-template-one-text-area recipe-template-one-directions-textarea"
+            (keyup)="textAreaInputHandler($event, 'direction')"
+            placeholder="Enter a Direction"
+            >{{
+              listElementDefaultValuesWhenNewItemAddedArray.directions[
+                directionsIndex
+              ]
+            }}</textarea
+          >
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6 recipe-template-one-text-area-delete-icon"
+            (click)="deleteTextAreaHandler($event, 'directions')"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="recipe-template-one-notes-top-container">
+      <h6 class="recipe-template-one-notes-title">Notes</h6>
+      <button
+        class="recipe-template-one-add-notes-button recipe-template-one-add-entry-button"
+        (click)="addTextAreaHandler('notes')"
+        *ngIf="!editButtonsActive"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-6 h-6 recipe-template-one-add-button-icon"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 4.5v15m7.5-7.5h-15"
+          />
+        </svg>
+      </button>
+      <div
+        class="recipe-template-one-text-area-container recipe-template-one-text-area-container-notes"
+        *ngFor="let noteText of blankTemplateData.notes; let noteIndex = index"
+        id="{{ notesListIds[noteIndex] }}"
+      >
+        <p class="recipe-template-one-text-area-index">-</p>
+        <textarea
+          class="recipe-template-one-notes-area recipe-template-one-notes-textarea"
+          (keyup)="textAreaInputHandler($event, 'note')"
+          placeholder="Enter a Note"
+          >{{
+            listElementDefaultValuesWhenNewItemAddedArray.notes[noteIndex]
+          }}</textarea
+        >
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-6 h-6 recipe-template-one-text-area-delete-icon"
+          (click)="deleteTextAreaHandler($event, 'notes')"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,121 @@
+<div class="recipe-template-one-main-container">
+  <div class="recipe-template-one-image-container">
+    <img
+      class="recipe-template-one-food-image"
+      [alt]="dishImagesData[recipeData.selectedRecipeDishImageIndex].altText"
+      [src]="
+        dishImagesData[recipeData.selectedRecipeDishImageIndex].imageLocation
+      "
+    />
+    <div class="recipe-template-one-title-container">
+      <p
+        class="recipe-template-one-title"
+        id="recipe-template-one-recipe-title"
+      >
+        {{ recipeData.title }}
+      </p>
+      <p
+        class="recipe-template-one-quote-text"
+        id="recipe-template-one-recipe-quote"
+      >
+        {{ recipeData.quote }}
+      </p>
+    </div>
+  </div>
+
+  <p class="recipe-template-one-tags-title">Tags</p>
+
+  <div class="recipe-template-one-tags-container">
+    <div
+      class="recipe-template-one-tag-container"
+      *ngFor="
+        let selectedTagsEntry of recipeData.tags;
+        let indexOfSelectedTags = index
+      "
+    >
+      <p class="recipe-template-one-tag-text">
+        {{ selectedTagsEntry }}
+      </p>
+    </div>
+  </div>
+  <div class="recipe-template-one-info-container">
+    <div class="recipe-template-one-info-bar">
+      <div class="recipe-template-one-info-bar-info-container">
+        <p class="recipe-template-info-bar-info-text">SERVINGS:</p>
+        <p
+          class="recipe-template-info-bar-info-input recipe-template-info-bar-servings-input"
+        >
+          {{ recipeData.servings }}
+        </p>
+      </div>
+      <div class="recipe-template-one-info-bar-info-container">
+        <p class="recipe-template-info-bar-info-text">PREPPING TIME:</p>
+        <p
+          class="recipe-template-info-bar-info-input recipe-template-info-bar-prep-time-input"
+        >
+          {{ recipeData.prepTime }}
+        </p>
+      </div>
+      <div class="recipe-template-one-info-bar-info-container">
+        <p class="recipe-template-info-bar-info-text">COOKING TIME:</p>
+        <p
+          class="recipe-template-info-bar-info-input recipe-template-info-bar-prep-time-input"
+        >
+          {{ recipeData.cookingTime }}
+        </p>
+      </div>
+    </div>
+
+    <div class="recipe-template-one-ingredients-directions-container">
+      <div class="recipe-template-one-ingredients-container">
+        <h6 class="recipe-template-one-ingredients-title">Ingredients</h6>
+        <div
+          class="recipe-template-one-text-area-container recipe-template-viewer-text-area"
+          *ngFor="
+            let ingredientText of recipeData.ingredientsList;
+            let ingredientIndex = index
+          "
+        >
+          <p class="recipe-template-one-text-area-index">-</p>
+
+          <p
+            class="recipe-template-one-text-area recipe-template-one-ingredient-input"
+          >
+            {{ ingredientText }}
+          </p>
+        </div>
+      </div>
+      <div class="recipe-template-one-direction-container">
+        <h6 class="recipe-template-one-ingredients-title">Directions</h6>
+        <div
+          class="recipe-template-one-text-area-container recipe-template-viewer-text-area"
+          *ngFor="
+            let directionsText of recipeData.directionsList;
+            let directionsIndex = index
+          "
+        >
+          <p class="recipe-template-one-text-area-index">
+            {{ directionsIndex + 1 }}.
+          </p>
+          <!--  id="{{ directionsListIds[directionsIndex] }}" -->
+          <p
+            class="recipe-template-one-direction-input recipe-template-one-text-area"
+          >
+            {{ directionsText }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="recipe-template-one-notes-top-container">
+      <h6 class="recipe-template-one-notes-title">Notes</h6>
+
+      <div
+        class="recipe-template-one-text-area-container recipe-template-viewer-text-area"
+        *ngFor="let noteText of recipeData.notes; let noteIndex = index"
+      >
+        <p class="recipe-template-one-text-area-index">-</p>
+        <p class="recipe-template-one-notes-area">{{ noteText }}</p>
+      </div>
+    </div>
+  </div>
+</div>

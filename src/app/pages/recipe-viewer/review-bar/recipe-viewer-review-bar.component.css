@@ -1,0 +1,88 @@
+.recipe-viewer-review-bar-top-container {
+  width: max-content;
+  max-width: max-content;
+  height: max-content;
+  max-height: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  top: -47.5px;
+  left: 0px;
+  background-color: white;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  gap: 10px;
+}
+.recipe-viewer-star-container {
+  width: max-content;
+  max-width: max-content;
+  height: max-content;
+  max-height: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.recipe-viewer-review-bar-star-button {
+  width: max(25px, 25px);
+  height: max(25px, 25px);
+  border-radius: 50%;
+  padding: 5px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--main800);
+  border: none;
+  z-index: 2;
+}
+.recipe-viewer-review-bar-star-image {
+  width: max(100%, 100%);
+  height: max(100%, 100%);
+  object-fit: cover;
+}
+.recipe-viewer-review-bar-make-button {
+  width: max(25px, 25px);
+  height: max(25px, 25px);
+  border-radius: 50%;
+  padding: 5px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--main800);
+  transition: all 0.25s;
+  border: none;
+  z-index: 2;
+}
+.recipe-viewer-review-bar-make-button:hover,
+.recipe-viewer-review-bar-star-button:hover {
+  background-color: var(--main100);
+  cursor: pointer;
+}
+
+.recipe-viewer-review-bar-make-button-active {
+  background-color: var(--main100);
+}
+
+.recipe-viewer-review-bar-make-button-icon {
+  width: max(100%, 100%);
+  height: max(100%, 100%);
+}
+
+.recipe-viewer-review-bar-sumbit-button {
+  width: max-content;
+  max-width: max-content;
+  max-height: max-content;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-family: var(--google-font);
+  font-size: var(--r16);
+  color: white;
+  background-color: var(--main800);
+  transition: all 0.5s;
+}

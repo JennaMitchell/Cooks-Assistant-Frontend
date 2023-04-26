@@ -1,0 +1,83 @@
+<div class="homepage-new-recipe-card-main-container">
+  <div class="homepage-new-recipe-info-container">
+    <img
+      class="homepage-recipe-icon"
+      src="{{ iconLocation }}"
+      alt="{{ iconAltText }}"
+      *ngIf="slideshowType === 'preference'"
+    />
+    <img
+      class="homepage-recipe-icon"
+      src="{{ iconLocation }}"
+      alt="{{ iconAltText }}"
+      *ngIf="slideshowType === 'cooking-time'"
+    />
+
+    <h6 class="homepage-new-recipe-card-title">{{ recipeTitle }}</h6>
+    <div class="homepage-new-recipe-card-id-container">
+      <div class="homepage-new-recipe-card-cooking-time-container">
+        <img
+          class="homepage-new-recipe-card-cooking-icon"
+          src="assets/images/icons/homepage/clock-icon.png"
+          alt="clock-icon"
+        />
+        <p class="homepage-new-recipe-card-cooking-time">{{ cookingTime }}</p>
+      </div>
+
+      <div class="homepage-new-recipe-card-tags-container">
+        <div
+          class="homepage-new-recipe-card-tag"
+          *ngFor="let tagText of recipeTags; let indexOfTag = index"
+        >
+          {{ tagText }}
+        </div>
+      </div>
+    </div>
+    <p class="homepage-new-recipe-description">{{ recipeDescription }}</p>
+    <div
+      class="homepage-new-recipe-ratings-container"
+      *ngIf="+numberOfReviews !== 0"
+    >
+      <img
+        class="homepage-new-recipe-star-rating"
+        alt="postive-star"
+        *ngFor="
+          let postiveStar of postiveRatingArray;
+          let indexOfPostiveStar = index
+        "
+        src="assets/images/rating-star/full-star-rating.png"
+      />
+      <img
+        class="homepage-new-recipe-star-rating"
+        alt="half-star"
+        *ngIf="halfStarActive"
+        src="assets/images/rating-star/half-star-rating.png"
+      />
+      <img
+        class="homepage-new-recipe-star-rating"
+        alt="negative-star"
+        *ngFor="
+          let negativeStar of negativeRatingArray;
+          let indexOfPostiveStar = index
+        "
+        src="assets/images/rating-star/empty-star-rating.png"
+      />
+      <p class="homepage-new-recipe-review-number-text">
+        ( {{ numberOfReviews }} )
+      </p>
+      <div
+        class="homepage-new-recipe-make-count-container"
+        *ngIf="+numberOfMakes !== 0"
+      >
+        <img
+          class="homepage-new-recipe-count-icon"
+          alt="count icon"
+          src="assets/images/icons/homepage/number-of-makes-icon-white.png"
+        />
+        <p class="homepage-new-recipe-count-text">{{ numberOfMakes }}</p>
+      </div>
+    </div>
+
+    <button class="homepage-new-recipe-make-button">Make</button>
+  </div>
+</div>

@@ -1,0 +1,141 @@
+.background-changer-backdrop {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: max(100vw, 100vw);
+  height: max(100vh, 100vh);
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: var(--login-popup-backdrop-z-index);
+}
+.background-changer-popup-main-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: max(300px, 300px);
+  max-height: max-content;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  z-index: var(--login-popup-main-container-z-index);
+  padding: 20px 20px 20px 20px;
+  box-sizing: border-box;
+  gap: 10px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px black;
+}
+.background-changer-popup-title {
+  margin: 0px;
+  padding: 0px;
+  font-size: var(--r48);
+  font-family: var(--google-font);
+  line-height: var(--r48);
+  color: var(--main600);
+  text-align: center;
+}
+.background-changer-popup-title-underline {
+  width: max(70%, 70%);
+  height: max(30px, 30px);
+  object-fit: fill;
+}
+
+.background-changer-popup-submit-button {
+  background-color: var(--main600);
+  color: var(--white);
+  padding: 10px 20px;
+
+  font-size: var(--r24);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 0px;
+  border-radius: 10px;
+  transition: all 1s;
+}
+.background-changer-popup-closing-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border-radius: 50%;
+  background-color: var(--main600);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: max(25px, 25px);
+  height: max(25px, 25px);
+  padding: 3px 3px 3.5px 3px;
+  box-sizing: border-box;
+  border: 0px;
+  color: var(--white);
+  transition: all 0.5s;
+}
+.background-changer-popup-closing-button-icon {
+  color: inherit;
+  width: max(100%, 100%);
+  height: max(100%, 100%);
+  transition: all 1s;
+}
+.background-changer-popup-closing-button:hover,
+.background-changer-popup-submit-button:hover {
+  color: black;
+  background-color: var(--main200);
+  cursor: pointer;
+}
+.background-changer-popup-title-underline {
+  width: max(80%, 80%);
+  height: max(30px, 30px);
+  object-fit: fill;
+}
+.background-changer-choice-button-container {
+  width: max(100%, 100%);
+
+  max-height: max-content;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+.background-changer-background-choice-button {
+  width: max(100%, 100%);
+  height: max(100px, 100px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px;
+  border: 0px;
+  transition: all 0.1s;
+}
+.background-changer-background-choice-button:hover {
+  border: 4px solid var(--popup-choice-button-active-color);
+  cursor: pointer;
+}
+.background-changer-background-choice-button-active {
+  border: 4px solid var(--popup-choice-button-active-color);
+}
+.background-changer-choice-image {
+  width: max(100%, 100%);
+  height: max(100%, 100%);
+  object-fit: fill;
+}
+.background-changer-submit-button {
+  box-sizing: border-box;
+  padding: 10px 20px;
+  font-size: var(--r24);
+  font-family: var(--google-font);
+  border-radius: 10px;
+  border: 0px;
+  background-color: var(--main600);
+  color: var(--white);
+  transition: all 0.5s;
+}
+.background-changer-submit-button-disabled {
+  background-color: grey;
+}
+.background-changer-submit-button-active-hover {
+  background-color: var(--main200);
+  color: black;
+}

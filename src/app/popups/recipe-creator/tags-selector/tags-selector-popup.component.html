@@ -1,0 +1,181 @@
+<div class="tags-selector-popup-backdrop">
+  <div class="tags-selector-main-container">
+    <button
+      class="tag-selector-popup-closing-button"
+      (click)="closingButtonHandler()"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6 tag-selector-popup-closing-button-icon"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 18L18 6M6 6l12 12"
+        />
+      </svg>
+    </button>
+    <!-- <p class="tag-selector-popup-title">Tag Selector</p>
+    <img
+      src="../../../../assets/images/chalk-highlights/chalk-underline.png"
+      alt="underline"
+      class="tag-selector-popup-title-underline"
+    /> -->
+    <p class="tag-selector-popup-sub-title">Preference</p>
+    <img
+      src="../../../../assets/images/chalk-highlights/chalk-underline.png"
+      alt="underline"
+      class="tag-selector-popup-sub-title-underline"
+    />
+
+    <div class="tag-selector-sub-container">
+      <button
+        class="tag-selector-tag-button"
+        *ngFor="
+          let preferenceData of preferenceButtonData;
+          let tempIndexPreferenceData = index
+        "
+        id="{{ preferenceData.id }}"
+        (click)="singleActiveButtonHandler($event)"
+        [ngClass]="{
+          'tag-selector-tag-button-active':
+            activePreferenceButtons[tempIndexPreferenceData]
+        }"
+      >
+        <img
+          class="tag-selector-tag-icon"
+          alt="{{ preferenceData.altText }}"
+          src="{{ preferenceData.iconLocation }}"
+        />
+        <p class="tag-selector-button-text">{{ preferenceData.title }}</p>
+      </button>
+    </div>
+    <p class="tag-selector-popup-sub-title">Nationality</p>
+    <img
+      src="../../../../assets/images/chalk-highlights/chalk-underline.png"
+      alt="underline"
+      class="tag-selector-popup-sub-title-underline"
+    />
+    <div class="tag-selector-sub-container">
+      <button
+        class="tag-selector-tag-button"
+        *ngFor="
+          let nationalityData of nationalityButtonData;
+          let tempNationalityDataIndex = index
+        "
+        id="{{ nationalityData.id }}"
+        (click)="nationalityAndMealTimeButtonHandler($event)"
+        [ngClass]="{
+          'tag-selector-tag-button-active':
+            activeNationalityButtons[tempNationalityDataIndex]
+        }"
+      >
+        <img
+          class="tag-selector-tag-icon"
+          alt="{{ nationalityData.altText }}"
+          src="{{ nationalityData.iconLocation }}"
+        />
+        <p class="tag-selector-button-text">{{ nationalityData.title }}</p>
+      </button>
+    </div>
+    <p class="tag-selector-popup-sub-title">Meal Times</p>
+    <img
+      src="../../../../assets/images/chalk-highlights/chalk-underline.png"
+      alt="underline"
+      class="tag-selector-popup-sub-title-underline"
+    />
+    <div class="tag-selector-sub-container">
+      <button
+        class="tag-selector-tag-button"
+        *ngFor="
+          let mealTimesData of mealsTimesButtonData;
+          let tempMealTimesDataIndex = index
+        "
+        id="{{ mealTimesData.id }}"
+        (click)="nationalityAndMealTimeButtonHandler($event)"
+        [ngClass]="{
+          'tag-selector-tag-button-active':
+            activeMealTimesButtons[tempMealTimesDataIndex]
+        }"
+      >
+        <img
+          class="tag-selector-tag-icon"
+          alt="{{ mealTimesData.altText }}"
+          src="{{ mealTimesData.iconLocation }}"
+        />
+        <p class="tag-selector-button-text">{{ mealTimesData.title }}</p>
+      </button>
+    </div>
+    <p class="tag-selector-popup-sub-title">Course</p>
+    <img
+      src="../../../../assets/images/chalk-highlights/chalk-underline.png"
+      alt="underline"
+      class="tag-selector-popup-sub-title-underline"
+    />
+    <div class="tag-selector-sub-container">
+      <button
+        class="tag-selector-tag-button"
+        *ngFor="
+          let recipeCourseData of recipeCourseTagData;
+          let tempRecipeCourseDataIndex = index
+        "
+        id="{{ recipeCourseData.id }}"
+        (click)="singleActiveButtonHandler($event)"
+        [ngClass]="{
+          'tag-selector-tag-button-active':
+            activeRecipeCourseButtons[tempRecipeCourseDataIndex]
+        }"
+      >
+        <img
+          class="tag-selector-tag-icon"
+          alt="{{ recipeCourseData.altText }}"
+          src="{{ recipeCourseData.iconLocation }}"
+        />
+        <p class="tag-selector-button-text">{{ recipeCourseData.title }}</p>
+      </button>
+    </div>
+    <p class="tag-selector-popup-sub-title">Main Ingredient</p>
+    <img
+      src="../../../../assets/images/chalk-highlights/chalk-underline.png"
+      alt="underline"
+      class="tag-selector-popup-sub-title-underline"
+    />
+    <div class="tag-selector-sub-container">
+      <button
+        class="tag-selector-tag-button"
+        *ngFor="
+          let mainIngredientsDataEntry of mainIngredientsData;
+          let tempMainIngredientsDataIndex = index
+        "
+        id="{{ mainIngredientsDataEntry.id }}"
+        (click)="singleActiveButtonHandler($event)"
+        [ngClass]="{
+          'tag-selector-tag-button-active':
+            activeMainIngrientButtons[tempMainIngredientsDataIndex]
+        }"
+      >
+        <img
+          class="tag-selector-tag-icon"
+          alt="{{ mainIngredientsDataEntry.altText }}"
+          src="{{ mainIngredientsDataEntry.iconLocation }}"
+        />
+        <p class="tag-selector-button-text">
+          {{ mainIngredientsDataEntry.title }}
+        </p>
+      </button>
+    </div>
+
+    <button
+      class="tag-selector-submit-button"
+      [disabled]="!submitButtonActive"
+      [ngClass]="{ disableButton: !submitButtonActive }"
+      (click)="submitButtonHandler()"
+    >
+      Submit
+    </button>
+  </div>
+</div>

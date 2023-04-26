@@ -1,0 +1,54 @@
+<div class="recipe-browser-backdrop">
+  <logged-in-nav-bar *ngIf="loggedIn"></logged-in-nav-bar>
+  <logged-out-nav-bar *ngIf="!loggedIn"></logged-out-nav-bar>
+  <div class="recipe-browser-main-container">
+    <recipe-browser-recipe-card
+      *ngFor="
+        let entryOfRetrievedRecipeCards of activeRetrievedRecipeCards;
+        let indexOfCard = index
+      "
+      [recipeEntry]="entryOfRetrievedRecipeCards"
+    ></recipe-browser-recipe-card>
+
+    <p
+      class="recipe-browser-no-data-found"
+      *ngIf="retrievedRecipeCards.length === 0"
+    >
+      No Recipes Found
+    </p>
+    <recipe-page-results-navigator
+      [numberOfPages]="numberOfPages"
+      (activeNumberOfPagesRetriever)="
+        activePageNumberFromChildComponent($event)
+      "
+    ></recipe-page-results-navigator>
+  </div>
+
+  <button
+    class="recipe-browser-nav-menu-button"
+    (click)="recipeNavMenuClickHandler()"
+    [ngClass]="{
+      'recipe-browser-nav-menu-button-moved-out': recipeNavMenuActive
+    }"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="w-6 h-6 recipe-browser-nav-menu-icon"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+      />
+    </svg>
+  </button>
+  <recipe-browser-nav-menu
+    [menuMoveOut]="recipeNavMenuActive"
+    (userSelectedTagsEvent)="userClickedMenuTagsHandler($event)"
+  >
+  </recipe-browser-nav-menu>
+</div>

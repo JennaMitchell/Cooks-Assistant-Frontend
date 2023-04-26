@@ -1,0 +1,49 @@
+<div class="recipe-viewer-review-bar-top-container">
+  <div class="recipe-viewer-star-container">
+    <button
+      class="recipe-viewer-review-bar-star-button"
+      *ngFor="let buttonId of starButtonsIds; let indexOfButtonId = index"
+      [id]="buttonId"
+      (mouseenter)="starButtonMouseEnterLeaveHandler($event)"
+      (mouseleave)="starButtonMouseEnterLeaveHandler($event)"
+      (click)="starButtonClickHandler($event)"
+    >
+      <img
+        class="recipe-viewer-review-bar-star-image"
+        alt="empty star icon"
+        src="../../../../assets/images/rating-star/full-star-rating.png"
+        *ngIf="activeStarButtonsArray[indexOfButtonId]"
+      />
+      <img
+        class="recipe-viewer-review-bar-star-image"
+        alt="empty star icon"
+        src="../../../../assets/images/rating-star/empty-star-rating.png"
+        *ngIf="!activeStarButtonsArray[indexOfButtonId]"
+      />
+    </button>
+  </div>
+
+  <button
+    class="recipe-viewer-review-bar-make-button"
+    (mouseenter)="makeButtonHoverHandler()"
+    (mouseleave)="makeButtonHoverHandler()"
+    (click)="makeButtonClickHandler()"
+    [ngClass]="{
+      'recipe-viewer-review-bar-make-button-active': makeButtonActive
+    }"
+  >
+    <img
+      src="../../../../assets/images/icons/homepage/number-of-makes-icon-white.png"
+      alt="number of makes icon"
+      class="recipe-viewer-review-bar-make-button-icon"
+      *ngIf="!makeButtonHoverActive"
+    />
+    <img
+      src="../../../../assets/images/icons/homepage/number-of-makes-icon.png"
+      alt="number of makes icon"
+      class="recipe-viewer-review-bar-make-button-icon"
+      *ngIf="makeButtonHoverActive"
+    />
+  </button>
+  <!-- <button class="recipe-viewer-review-bar-sumbit-button">Submit</button> -->
+</div>

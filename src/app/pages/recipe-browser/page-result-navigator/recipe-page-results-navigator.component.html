@@ -1,0 +1,88 @@
+<div class="recipe-browser-recipe-page-results-navigator-main-container">
+  <button
+    class="recipe-browser-recipe-page-results-navigator-arrow-button"
+    (click)="leftArrowButtonHandler()"
+    *ngIf="arrowButtonsActive"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="w-6 h-6 recipe-browser-recipe-page-results-navigator-button-icon"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M15.75 19.5L8.25 12l7.5-7.5"
+      />
+    </svg>
+  </button>
+
+  <button
+    class="recipe-browser-recipe-page-results-navigator-page-button"
+    (click)="pageNumberButtonHandler($event)"
+    [ngClass]="{
+      'recipe-browser-recipe-page-results-navigator-page-button-active':
+        activePageNumber === 1
+    }"
+  >
+    1
+  </button>
+  <p
+    class="recipe-browser-recipe-page-results-navigator-page-dots"
+    *ngIf="leftDotsActive"
+  >
+    ...
+  </p>
+  <button
+    class="recipe-browser-recipe-page-results-navigator-page-button"
+    (click)="pageNumberButtonHandler($event)"
+    [ngClass]="{
+      'recipe-browser-recipe-page-results-navigator-page-button-active':
+        activePageNumber === middlePageButtonValue
+    }"
+    *ngIf="middlePageButtonActive"
+  >
+    {{ middlePageButtonValue }}
+  </button>
+  <p
+    class="recipe-browser-recipe-page-results-navigator-page-dots"
+    *ngIf="rightDotsActive"
+  >
+    ...
+  </p>
+  <button
+    class="recipe-browser-recipe-page-results-navigator-page-button"
+    (click)="pageNumberButtonHandler($event)"
+    [ngClass]="{
+      'recipe-browser-recipe-page-results-navigator-page-button-active':
+        activePageNumber === numberOfPages
+    }"
+    *ngIf="arrowButtonsActive"
+  >
+    {{ numberOfPages }}
+  </button>
+
+  <button
+    class="recipe-browser-recipe-page-results-navigator-arrow-button"
+    (click)="rightArrowButtonHandler()"
+    *ngIf="arrowButtonsActive"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="w-6 h-6 recipe-browser-recipe-page-results-navigator-button-icon"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M8.25 4.5l7.5 7.5-7.5 7.5"
+      />
+    </svg>
+  </button>
+</div>

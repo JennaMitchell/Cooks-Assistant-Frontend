@@ -1,0 +1,285 @@
+<create-recipe-button
+  [templateData]="userEnteredTemplateData"
+  (createButtonClicked)="createButtonClicked($event)"
+></create-recipe-button>
+<div class="recipe-template-three-main-container">
+  <div class="recipe-template-three-directions-ingredients-top-container">
+    <div class="recipe-template-three-ingredients-container">
+      <p class="recipe-template-three-ingredients-title">INGREDIENTS</p>
+      <button
+        class="recipe-template-three-add-text-button recipe-template-three-add-text-button-ingredients"
+        (click)="addTextAreaHandler('ingredients')"
+        *ngIf="!editButtonsActive"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-6 h-6 recipe-template-three-add-ingredient-button-icon"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 4.5v15m7.5-7.5h-15"
+          />
+        </svg>
+      </button>
+      <div
+        class="recipe-template-three-info-text-area-container"
+        *ngFor="
+          let ingredientsText of blankTemplateData.ingredientsList;
+          let ingredientsIndex = index
+        "
+        id="{{ ingredientListIds[ingredientsIndex] }}"
+      >
+        <p class="recipe-template-three-text-area-index">-</p>
+        <textarea
+          class="recipe-template-three-text-area recipe-template-three-ingredient-textarea"
+          (keyup)="textAreaInputHandler($event, 'ingredient')"
+          placeholder="Enter an Ingredient"
+          >{{
+            listElementDefaultValuesWhenNewItemAddedArray.ingredients[
+              ingredientsIndex
+            ]
+          }}</textarea
+        >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-6 h-6 recipe-template-three-text-area-delete-icon"
+          (click)="deleteTextAreaHandler($event, 'ingredients')"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
+          />
+        </svg>
+      </div>
+    </div>
+    <div class="recipe-template-three-directions-container">
+      <button
+        class="recipe-template-three-add-text-button recipe-template-three-add-text-button-directions"
+        (click)="addTextAreaHandler('directions')"
+        *ngIf="!editButtonsActive"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-6 h-6 recipe-template-three-add-ingredient-button-icon"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 4.5v15m7.5-7.5h-15"
+          />
+        </svg>
+      </button>
+      <p class="recipe-template-three-directions-title">DIRECTIONS</p>
+      <div
+        class="recipe-template-three-info-text-area-container"
+        *ngFor="
+          let directionsText of blankTemplateData.directionsList;
+          let directionsIndex = index
+        "
+        id="{{ directionsListIds[directionsIndex] }}"
+      >
+        <p class="recipe-template-three-text-area-index">
+          {{ directionsIndex + 1 }}.
+        </p>
+        <textarea
+          class="recipe-template-three-text-area recipe-template-three-directions-text-area"
+          (keyup)="textAreaInputHandler($event, 'directions')"
+          placeholder="Enter a Direction"
+          >{{
+            listElementDefaultValuesWhenNewItemAddedArray.directions[
+              directionsIndex
+            ]
+          }}</textarea
+        >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-6 h-6 recipe-template-three-text-area-delete-icon"
+          (click)="deleteTextAreaHandler($event, 'directions')"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="recipe-template-three-description-top-container">
+    <img
+      class="recipe-template-three-food-image"
+      [alt]="
+        dishImagesData[userEnteredTemplateData.selectedRecipeDishImageIndex]
+          .altText
+      "
+      [src]="
+        dishImagesData[userEnteredTemplateData.selectedRecipeDishImageIndex]
+          .imageLocation
+      "
+    />
+    <textarea
+      class="recipe-template-three-recipe-title"
+      (keyup)="textAreaInputHandler($event, 'title')"
+      placeholder="Please Enter a Title"
+    ></textarea>
+    <p class="recipe-template-three-tags-title">Tags</p>
+    <button
+      class="recipe-template-three-tags-edit-button recipe-template-three-edit-button"
+      (click)="editTagsButtonHandler()"
+      (mouseenter)="editTagButtonMouseEnterHandler()"
+      (mouseleave)="editTagButtonMouseEnterHandler()"
+      *ngIf="!editButtonsActive"
+    >
+      <img
+        class="recipe-template-three-edit-button-icon"
+        alt="tags button icon"
+        src="../../../../../assets/images/icons/homepage/new-recipe-icon.png"
+        *ngIf="!editTagsButtonMouseEnter"
+      />
+      <img
+        class="recipe-template-three-edit-button-icon"
+        alt="tags button icon"
+        src="../../../../../assets/images/icons/homepage/new-recipe-icon-white.png"
+        *ngIf="editTagsButtonMouseEnter"
+      />
+    </button>
+    <button
+      class="recipe-template-three-photo-edit-button recipe-template-three-edit-button"
+      (click)="dishImageEditButtonHandler()"
+      (mouseenter)="editPhotoButtonMouseEnterHandler()"
+      (mouseleave)="editPhotoButtonMouseEnterHandler()"
+      *ngIf="!editButtonsActive"
+    >
+      <img
+        class="recipe-template-three-edit-button-icon"
+        alt="tags button icon"
+        src="../../../../../assets/images/icons/homepage/new-recipe-icon.png"
+        *ngIf="!editPhotoButtonMouseEnter"
+      />
+      <img
+        class="recipe-template-three-edit-button-icon"
+        alt="tags button icon"
+        src="../../../../../assets/images/icons/homepage/new-recipe-icon-white.png"
+        *ngIf="editPhotoButtonMouseEnter"
+      />
+    </button>
+    <div class="recipe-template-three-tags-container">
+      <div
+        class="recipe-template-three-tag"
+        *ngFor="
+          let selectedTagsEntry of selectedTags;
+          let indexOfSelectedTags = index
+        "
+        id="{{ selectedTagsButtonIds[indexOfSelectedTags] }}"
+      >
+        <p class="recipe-template-three-tag-text">{{ selectedTagsEntry }}</p>
+        <button
+          class="recipe-template-three-delete-tag-button"
+          (click)="deleteTagButtonHandler($event)"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6 recipe-template-three-closing-icon"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="recipe-template-three-recipe-quick-info-container">
+      <img
+        class="recipe-template-three-quick-info-icon"
+        alt="servings-icon"
+        src="../../../../../assets/images/icons/recipe-creator/servings/servings-icon.png"
+      />
+      <textarea
+        class="recipe-template-three-quick-info-text-area"
+        (keyup)="textAreaInputHandler($event, 'servings')"
+        placeholder="## Servings"
+        >{{ userEnteredTemplateData.servings }}</textarea
+      >
+      <img
+        class="recipe-template-three-quick-info-icon recipe-template-three-time-to-cook-icon"
+        alt="cooking-time-icon"
+        src="../../../../../assets/images/icons/recipe-creator/cook-time/cook-time-icon.png"
+      />
+      <textarea
+        class="recipe-template-three-quick-info-text-area recipe-template-three-time-to-cook"
+        (keyup)="textAreaInputHandler($event, 'cookingTime')"
+        placeholder="## MIN"
+        >{{ userEnteredTemplateData.cookingTime }}</textarea
+      >
+    </div>
+
+    <textarea
+      class="recipe-template-three-description-text-area"
+      (keyup)="textAreaInputHandler($event, 'description')"
+      placeholder="Enter a Description"
+    ></textarea>
+
+    <div class="recipe-template-three-notes-container">
+      <p class="recipe-template-three-notes-title">Notes</p>
+
+      <div
+        class="recipe-template-three-info-text-area-container"
+        *ngFor="
+          let notesText of blankTemplateData.notes;
+          let notesIndex = index
+        "
+        id="{{ notesListIds[notesIndex] }}"
+      >
+        <p class="recipe-template-three-text-area-index">-</p>
+        <textarea
+          class="recipe-template-three-text-area recipe-template-three-notes-textarea"
+          (keyup)="textAreaInputHandler($event, 'notes')"
+          placeholder="Please Enter a Note"
+          >{{
+            listElementDefaultValuesWhenNewItemAddedArray.notes[notesIndex]
+          }}</textarea
+        >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-6 h-6 recipe-template-three-text-area-delete-icon"
+          (click)="deleteTextAreaHandler($event, 'notes')"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>

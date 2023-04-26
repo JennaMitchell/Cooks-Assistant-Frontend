@@ -1,0 +1,53 @@
+.homepage-footer-main-container {
+  width: 1000px;
+  max-width: 1000px;
+  max-height: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0px 40px;
+}
+.homepage-footer-company-info-links-container,
+.homepage-footer-company-social-media-links-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: max-content;
+  max-width: max-content;
+  height: max-content;
+}
+.homepage-footer-company-info-link {
+  width: max-content;
+  max-width: max-content;
+  height: max-content;
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+  font-family: var(--google-font);
+  color: var(--black);
+  font-size: var(--r18);
+  text-decoration: none;
+  background-color: inherit;
+  transition: all 1s;
+}
+.homepage-footer-company-info-link:hover {
+  color: var(--main1000);
+  cursor: pointer;
+}
+.homepage-footer-company-social-media-link {
+  width: calc((20 / var(--base) * 1rem));
+  max-width: calc((20 / var(--base) * 1rem));
+  height: calc((20 / var(--base) * 1rem));
+  max-height: calc((20 / var(--base) * 1rem));
+  object-fit: fill;
+
+  padding: 5px;
+  border-radius: 50%;
+  transition: all 1s;
+}
+.homepage-footer-company-social-media-link:hover {
+  background-color: var(--main200);
+  cursor: pointer;
+}

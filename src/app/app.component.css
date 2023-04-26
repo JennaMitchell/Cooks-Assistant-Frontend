@@ -1,0 +1,13 @@
+.app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  max-width: max-content;
+  width: max-content;
+  height: max-content;
+  max-height: max-content;
+  overflow-x: hidden;
+}
+@media (max-width: 1000px) {
+}

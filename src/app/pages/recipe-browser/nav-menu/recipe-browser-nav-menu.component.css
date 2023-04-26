@@ -1,0 +1,215 @@
+.recipe-browser-nav-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-items: center;
+  height: max(100%, 100%);
+  width: max(250px, 250px);
+
+  background-color: var(--main800);
+  box-shadow: 0px 0px 10px black;
+  position: fixed;
+  top: 0px;
+  left: -250px;
+  z-index: 2;
+  padding: 0px 0px;
+  transition: all 0.5s;
+}
+
+.recipe-browser-nav-menu-moved-out {
+  left: 0px;
+}
+
+.recipe-browser-nav-menu-title {
+  font-family: var(--google-font);
+  font-size: var(--r28);
+  color: white;
+  padding: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: 0px;
+  width: max-content;
+  max-width: max-content;
+  height: max-content;
+  max-height: max-content;
+  align-self: center;
+}
+.recipe-browser-nav-menu-title-underline {
+  width: max(80%, 80%);
+  height: max(24px, 24px);
+
+  align-self: center;
+  padding-bottom: 10px;
+}
+.recipe-browser-nav-menu-category-button {
+  width: max(100%, 100%);
+  height: max-content;
+  max-height: max-content;
+  padding: 10px 20px;
+  font-family: var(--google-font);
+  font-size: var(--r20);
+  background-color: var(--main800);
+  color: white;
+  display: grid;
+  align-items: center;
+  justify-items: space-between;
+  grid-template-columns: 1fr max-content;
+  grid-template-rows: 1fr;
+  border: 0px;
+
+  border-bottom: 4px solid var(--main1000);
+
+  box-sizing: border-box;
+  text-align: start;
+  position: relative;
+}
+
+.recipe-browser-nav-menu-border-cover {
+  position: absolute;
+  bottom: -4px;
+  left: 0px;
+  background-color: var(--main800);
+  height: max(5px, 5px);
+  width: max(10px, 10px);
+}
+
+.recipe-browser-nav-menu-border-sub-button-cover {
+  position: absolute;
+  bottom: -4px;
+  left: -4px;
+  background-color: var(--main100);
+  height: max(5px, 5px);
+  width: max(10px, 10px);
+}
+
+.recipe-browser-nav-menu-category-button:hover {
+  border-bottom: 4px solid white;
+  color: var(--main200);
+  cursor: pointer;
+}
+
+.recipe-browser-nav-menu-category-button-active {
+  border-bottom: 4px solid white;
+  color: var(--main200);
+}
+.recipe-browser-nav-menu-button-icon {
+  width: max(20px, 20px);
+  height: max(20px, 20px);
+}
+.recipe-browser-nav-menu-drop-down {
+  width: max(100%, 100%);
+  max-height: max-content;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--main600);
+
+  box-sizing: border-box;
+}
+.recipe-browser-nav-menu-option-button {
+  background-color: var(--main100);
+  width: max(100%, 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: black;
+  border: none;
+
+  box-sizing: border-box;
+  padding: 5px 15px;
+  border-top: none;
+  border: 4px solid transparent;
+  position: relative;
+}
+.recipe-browser-nav-menu-option-button:hover {
+  border-bottom: 4px solid black;
+  cursor: pointer;
+}
+.recipe-browser-nav-menu-option-button-active {
+  border-bottom: 4px solid black;
+}
+.recipe-browser-nav-menu-option-button-text {
+  font-family: var(--google-font);
+  font-size: var(--r16);
+  padding: 0px;
+  margin: 0px;
+  color: inherit;
+}
+.recipe-browser-nav-menu-option-button-icon {
+  width: max(17.5px, 17.5px);
+  height: max(17.5px, 17.5px);
+}
+
+.recipe-browser-search-dropdown-container {
+  padding: 20px 10px;
+  box-sizing: border-box;
+}
+.recipe-browser-search-input-container {
+  width: max(100%, 100%);
+  height: max(35px, 35px);
+  display: flex;
+
+  align-content: center;
+  justify-content: center;
+  color: var(--main800);
+
+  border: 2px solid var(--main600);
+  box-sizing: border-box;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: white;
+}
+.recipe-browser-search-input-container-active {
+  outline: 2px solid blue;
+  border: 2px solid blue;
+  color: blue;
+}
+.recipe-browser-search-input-icon {
+  width: max(25px, 25px);
+  height: max(25px, 25px);
+  color: inherit;
+}
+.recipe-browser-search-input {
+  width: max(100%, 100%);
+  height: max(100%, 100%);
+  outline: none;
+  border: none;
+  color: black;
+  font-family: var(--google-font);
+  font-size: var(--r16);
+  background-color: transparent;
+}
+.recipe-browser-nav-menu-ratings-star-button {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  height: max(40px, 40px);
+  width: max(100%, 100%);
+  padding: 2.5px 0px;
+  box-sizing: border-box;
+  border: none;
+  background-color: transparent;
+  transition: all 0.5s;
+  justify-self: center;
+}
+.recipe-browser-nav-menu-ratings-star-button:hover {
+  background-color: var(--main100);
+  cursor: pointer;
+}
+.recipe-browser-nav-menu-ratings-star-button-active {
+  background-color: var(--main100);
+}
+.recipe-browser-nav-menu-star-icon {
+  width: max(20px, 20px);
+  height: max(20px, 20px);
+
+  object-fit: cover;
+}
+.recipe-browser-rating-dropdown-container {
+  align-content: center;
+  justify-content: center;
+  gap: 0px;
+  display: flex;
+  flex-direction: column;
+}

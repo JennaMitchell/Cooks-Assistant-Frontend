@@ -1,0 +1,35 @@
+<div class="homepage-backdrop">
+  <logged-out-nav-bar *ngIf="!loggedIn"></logged-out-nav-bar>
+  <logged-in-nav-bar *ngIf="loggedIn"></logged-in-nav-bar>
+
+  <div class="homepage-main-container">
+    <homepage-top-nav-bar></homepage-top-nav-bar>
+    <homepage-recipe-slideshow></homepage-recipe-slideshow>
+
+    <h6 class="homepage-section-title">New Recipes</h6>
+    <img
+      src="assets/images/chalk-highlights/chalk-underline.png"
+      alt="Heading-Underline"
+      class="homepage-section-title-underline"
+    />
+    <div class="new-recipe-slideshow-category-container">
+      <div class="new-recipe-slideshows-container">
+        <homepage-full-recipe-slideshow
+          slideshowType="preference"
+        ></homepage-full-recipe-slideshow>
+        <homepage-cuisines-section></homepage-cuisines-section>
+        <homepage-full-recipe-slideshow
+          slideshowType="cooking-time"
+        ></homepage-full-recipe-slideshow>
+      </div>
+      <homepage-recipe-categories></homepage-recipe-categories>
+    </div>
+    <homepage-social-media-section></homepage-social-media-section>
+    <homepage-footer></homepage-footer>
+  </div>
+
+  <search-popup *ngIf="searchPoupActive"></search-popup>
+  <homepage-category-popup
+    *ngIf="homepageCategoryPopupActive"
+  ></homepage-category-popup>
+</div>
