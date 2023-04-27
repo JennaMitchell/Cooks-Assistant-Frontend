@@ -41,5 +41,10 @@ export class Homepage {
     this.homepageCategoryPopupActiveObserver$.subscribe((value) => {
       this.homepageCategoryPopupActive = value;
     });
+
+    document.documentElement.style.setProperty(
+      '--scrollbar-width',
+      window.innerWidth - document.documentElement.clientWidth + 'px'
+    );
   }
 }
