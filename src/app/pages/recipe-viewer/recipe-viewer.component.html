@@ -1,4 +1,4 @@
-<div class="recipe-viewer-backdrop">
+<main class="recipe-viewer-backdrop">
   <logged-in-nav-bar *ngIf="loggedIn"></logged-in-nav-bar>
   <logged-out-nav-bar *ngIf="!loggedIn"></logged-out-nav-bar>
 
@@ -21,4 +21,4 @@
       [recipeData]="retrievedData"
     ></recipe-viewer-review-bar>
   </div>
-</div>
+</main>

@@ -1,0 +1,132 @@
+.homepage-learning-content-container {
+  position: relative;
+  width: max(200px, 200px);
+  height: max-content;
+  max-height: max-content;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 20px;
+  background-color: var(--main800);
+  border-radius: 10px;
+}
+.homepage-learning-content-title-container {
+  width: max(100%, 100%);
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.homepage-learning-section-title {
+  color: white;
+  font-family: var(--google-font);
+  font-size: var(--r24);
+  margin: 0px;
+  padding: 0px;
+  width: max(100%, 100%);
+  text-align: center;
+  height: max-content;
+  max-height: max-content;
+}
+.homepage-learning-section-underline {
+  width: max(100%, 100%);
+  height: max(20px, 20px);
+  object-fit: fill;
+}
+.homepage-learning-section-button-link {
+  width: max(100%, 100%);
+  height: max(100%, 100%);
+  border: none;
+  padding: 0px;
+  margin: 0px;
+}
+.homepage-learning-section-button {
+  width: max(100%, 100%);
+  height: max(100px, 100px);
+  display: grid;
+  grid-template-rows: 100%;
+  grid-template-columns: 100%;
+  align-items: center;
+  justify-content: flex-start;
+  border: none;
+  position: relative;
+  padding: 0px;
+  transition: "box-shadow" 0.5 border 0.5s;
+  border: 1px solid transparent;
+}
+.homepage-learning-section-button:hover {
+  box-shadow: 0px 0px 15px white;
+  border: 1px solid white;
+}
+
+.homepage-learning-button-image-container {
+  width: max(100%, 100%);
+  height: max(100%, 100%);
+}
+.homepage-learning-button-image {
+  width: max(100%, 100%);
+  height: max(100%, 100%);
+  object-fit: fill;
+}
+.homepage-learning-section-button-title {
+  position: absolute;
+  bottom: -5px;
+  left: 5px;
+  width: max-content;
+  max-width: 100%;
+  max-height: max-content;
+  font-family: var(--google-font);
+  font-size: var(--r12);
+  background-color: var(--main800);
+  box-sizing: border-box;
+  padding: 5px 10px;
+  color: white;
+}
+.homepage-learning-content-container-left {
+  left: 50px;
+  top: 2.5%;
+}
+.homepage-learning-content-container-right {
+  left: 30%;
+  top: 20%;
+}
+.homepage-learning-content-container-center {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  box-shadow: 0px 0px 15px black;
+}
+@media (max-width: 810px) {
+  .homepage-learning-content-container {
+    position: absolute;
+    transition: all 0.5s;
+  }
+  .homepage-learning-content-container:hover {
+    box-shadow: 0px 0px 15px black;
+  }
+}
+@media (max-width: 550px) {
+  .homepage-learning-content-container-left {
+    left: -5%;
+  }
+  .homepage-learning-content-container-right {
+    left: 38%;
+  }
+}
+@media (max-width: 360px) {
+  .homepage-learning-content-container-right {
+    left: 30%;
+  }
+}
+@media (max-width: 320px) {
+  .homepage-learning-content-container-left {
+    left: -7.5%;
+  }
+  .homepage-learning-content-container-right {
+    left: 15%;
+  }
+}

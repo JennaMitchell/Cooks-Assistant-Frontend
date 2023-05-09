@@ -2,12 +2,12 @@ import { Component, Input } from '@angular/core';
 import { RecipeTagFilter } from 'src/app/utilities/recipe-tag-filter/recipe-tag-filter.service';
 import { RecipeTemplateSavedDataInterfaceWithId } from 'src/app/utilities/api-call-functions/recipe-data-api-calls/recipe-data-api-calls.service';
 import { dishImagesData } from 'src/app/constants/dish-image-data';
-
+import { MediaQueryService } from 'src/app/utilities/media-queries-service/media-queries.service';
 @Component({
   selector: 'slide-display',
   templateUrl: './slide-display.component.html',
   styleUrls: ['./slide-display.component.css'],
-  providers: [RecipeTagFilter],
+  providers: [RecipeTagFilter, MediaQueryService],
 })
 export class SlideDisplay {
   constructor(private tagFilterService: RecipeTagFilter) {}
@@ -34,10 +34,9 @@ export class SlideDisplay {
       _id: '',
     },
   ];
-  configurationZero = false;
-  configurationOne = false;
-  configurationTwo = false;
+
   dishImagesData = dishImagesData;
+
   renderReadyIcons: {
     title: string;
     iconLocation: string;
@@ -46,6 +45,11 @@ export class SlideDisplay {
   }[] = [];
 
   activeSlidesArray: boolean[] = [false, false, false, false, false];
+  windowResizedTo605Pixels = false;
+  windowResizeTitleCardHandler() {
+    this.windowResizedTo605Pixels =
+      window.matchMedia('(max-width: 605px)').matches;
+  }
 
   tagsArrayCreator(tagsArray: string[]) {
     const retirevedTagsImageArray: {
@@ -72,24 +76,14 @@ export class SlideDisplay {
 
   updateConfiguration() {
     if (this.configuration === 0) {
-      this.configurationZero = true;
-      this.configurationOne = false;
-      this.configurationTwo = false;
-
       if (this.retrievedDataFromParent.length >= 3) {
         this.tagsArrayCreator(this.retrievedDataFromParent[2].tags);
       }
     } else if (this.configuration === 1) {
-      this.configurationZero = false;
-      this.configurationOne = true;
-      this.configurationTwo = false;
       if (this.retrievedDataFromParent.length >= 1) {
         this.tagsArrayCreator(this.retrievedDataFromParent[0].tags);
       }
     } else {
-      this.configurationZero = false;
-      this.configurationOne = false;
-      this.configurationTwo = true;
       if (this.retrievedDataFromParent.length >= 5) {
         this.tagsArrayCreator(this.retrievedDataFromParent[4].tags);
       }
@@ -124,5 +118,8 @@ export class SlideDisplay {
 
   ngOnInit() {
     this.updateConfiguration();
+    window.addEventListener('resize', () => {
+      this.windowResizeTitleCardHandler();
+    });
   }
 }

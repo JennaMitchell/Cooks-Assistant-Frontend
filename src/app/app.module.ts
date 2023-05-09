@@ -22,8 +22,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { RefreshWarningPopupComponent } from './popups/refresh-warning/refresh-warning.component';
 import { ErrorPopupModule } from './popups/error/error-popup.module';
 import { SuccessPopupModule } from './popups/success/success-popup.module';
+import { mediaQueryReducers } from 'libs/store/media-queries/media-queries-reducers';
+import { TermsOfServicePopupComponent } from './popups/terms-of-service/terms-of-service-popup.component';
 @NgModule({
-  declarations: [AppComponent, RefreshWarningPopupComponent],
+  declarations: [
+    AppComponent,
+    RefreshWarningPopupComponent,
+    TermsOfServicePopupComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -38,6 +44,7 @@ import { SuccessPopupModule } from './popups/success/success-popup.module';
       popup: popupReducers,
       auth: authReducers,
       recipeCreator: recipeCreatorReducers,
+      mediaQuery: mediaQueryReducers,
     }),
     StoreDevtoolsModule.instrument({ maxAge: 10 }),
     EffectsModule.forRoot([]),

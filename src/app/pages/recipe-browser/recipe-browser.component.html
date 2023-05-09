@@ -1,4 +1,4 @@
-<div class="recipe-browser-backdrop">
+<main class="recipe-browser-backdrop">
   <logged-in-nav-bar *ngIf="loggedIn"></logged-in-nav-bar>
   <logged-out-nav-bar *ngIf="!loggedIn"></logged-out-nav-bar>
   <div class="recipe-browser-main-container">
@@ -51,4 +51,4 @@
     (userSelectedTagsEvent)="userClickedMenuTagsHandler($event)"
   >
   </recipe-browser-nav-menu>
-</div>
+</main>

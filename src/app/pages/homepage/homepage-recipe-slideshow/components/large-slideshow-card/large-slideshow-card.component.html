@@ -2,11 +2,13 @@
   class="homepage-slideshow-large-card-main-container"
   (click)="cardClickHandler()"
 >
-  <img
-    src="{{ imageUrl }}"
-    alt="{{ title }}"
-    class="homepage-slideshow-large-card-image"
-  />
+  <div class="homepage-slideshow-large-card-image-container">
+    <img
+      src="{{ imageUrl }}"
+      alt="{{ title }}"
+      class="homepage-slideshow-large-card-image"
+    />
+  </div>
 
   <div class="homepage-slideshow-large-card-details-container">
     <p class="homepage-slideshow-large-card-title">{{ title }}</p>

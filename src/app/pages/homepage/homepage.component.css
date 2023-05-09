@@ -37,7 +37,6 @@
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
-  gap: 10px;
 }
 .homepage-section-title {
   font-family: var(--google-font);
@@ -81,18 +80,46 @@
   align-content: flex-start;
   justify-content: space-between;
   flex-direction: column;
-  height: max(1275px, 1275px);
+  max-height: max-content;
+  height: max-content;
+  gap: 50px;
+}
+
+@media (max-width: 1005px) {
+  .new-recipe-slideshow-category-container {
+    width: max(100%, 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    box-sizing: border-box;
+    padding: 20px;
+  }
 }
 @media (max-width: 1000px) {
   .homepage-backdrop {
-    width: max-content;
-    max-width: max-content;
     box-sizing: border-box;
     padding: 20px 40px;
   }
   .homepage-main-container {
-    width: max-content;
-    max-width: max-content;
-    min-width: max-content;
+    width: max(100%, 100%);
+  }
+  .new-recipe-slideshows-container {
+    width: max(100%, 100%);
+  }
+}
+
+@media (max-width: 675px) {
+  .homepage-section-title {
+    font-size: var(--r32);
+  }
+  .homepage-section-title-underline {
+    width: max(250px, 250px);
+    height: max(30px, 30px);
+  }
+
+  .homepage-backdrop {
+    box-sizing: border-box;
+    padding: 20px 10px;
   }
 }

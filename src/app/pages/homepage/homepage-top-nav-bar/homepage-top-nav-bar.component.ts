@@ -2,13 +2,14 @@ import { Component } from '@angular/core';
 import { ActivatePopupService } from 'src/app/utilities/activate-popup-functions/activate-popup-functions.service';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { PopupActions } from 'libs/store/popups/popup-actions.actions';
+
 import { HomepageActions } from 'libs/store/homepage/homepage.actions';
+import { MediaQueryService } from 'src/app/utilities/media-queries-service/media-queries.service';
 @Component({
   selector: 'homepage-top-nav-bar',
   templateUrl: './homepage-top-nav-bar.component.html',
   styleUrls: ['./homepage-top-nav-bar.component.css'],
-  providers: [ActivatePopupService],
+  providers: [ActivatePopupService, MediaQueryService],
 })
 export class HomepageTopNavBar {
   recipesButtonHover = false;
@@ -19,7 +20,8 @@ export class HomepageTopNavBar {
   constructor(
     private activatePopupService: ActivatePopupService,
     private route: Router,
-    private store: Store
+    private store: Store,
+    private mediaQueryService: MediaQueryService
   ) {}
 
   onRecipeButtonHover() {
@@ -50,5 +52,9 @@ export class HomepageTopNavBar {
     this.activatePopupService.homepageCategoryPopupHandler();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.mediaQueryService.moduleTopContainer100PercentWidthUpdate(
+      'homepage-nav-bar'
+    );
+  }
 }

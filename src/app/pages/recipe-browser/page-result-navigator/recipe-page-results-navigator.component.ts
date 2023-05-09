@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'recipe-page-results-navigator',
@@ -8,8 +7,6 @@ import { Store } from '@ngrx/store';
   providers: [],
 })
 export class RecipePageResultsNavigatorComponent {
-  constructor(private store: Store) {}
-
   @Input('numberOfPages') numberOfPages = 0;
   @Output('activeNumberOfPagesRetriever') activeNumberOfPagesRetriever =
     new EventEmitter<number>();

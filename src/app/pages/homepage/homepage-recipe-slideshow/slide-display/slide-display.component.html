@@ -1,218 +1,95 @@
-<div class="homepage-category-slide">
-  <div class="homepage-slideshow-configuration" *ngIf="configurationZero">
-    <div class="homepage-slides-title-card">
-      <h6 class="homepage-slides-title">{{ slideTitle }}</h6>
-      <img
-        class="chicken-slide-title-underline"
-        src="assets/images/chalk-highlights/chalk-underline.png"
-        alt="underline"
-      />
-      <h6 class="homepage-slides-title">Dishs</h6>
-      <img
-        class="chicken-slide-title-underline-small"
-        src="assets/images/chalk-highlights/chalk-underline.png"
-        alt="underline"
-      />
-    </div>
-    <div class="homepage-category-slide-stacked-cards">
-      <small-slideshow-card
-        *ngIf="activeSlidesArray[0]"
-        imageUrl="{{
-          dishImagesData[
-            retrievedDataFromParent[0].selectedRecipeDishImageIndex
-          ].imageLocation
-        }}"
-        title="{{ retrievedDataFromParent[0].title }}"
-        recipeId="{{ retrievedDataFromParent[0]._id }}"
-      ></small-slideshow-card>
-      <small-slideshow-card
-        *ngIf="activeSlidesArray[1]"
-        imageUrl="{{
-          dishImagesData[
-            retrievedDataFromParent[1].selectedRecipeDishImageIndex
-          ].imageLocation
-        }}"
-        title="{{ retrievedDataFromParent[1].title }}"
-        recipeId="{{ retrievedDataFromParent[1]._id }}"
-      ></small-slideshow-card>
-    </div>
-    <large-slideshow-card
-      *ngIf="activeSlidesArray[2]"
-      imageUrl="{{
-        dishImagesData[retrievedDataFromParent[2].selectedRecipeDishImageIndex]
-          .imageLocation
-      }}"
-      title="{{ retrievedDataFromParent[2].title }}"
-      cookingTime="{{ retrievedDataFromParent[2].cookingTime }}"
-      [tagsImageArray]="renderReadyIcons"
-      recipeId="{{ retrievedDataFromParent[2]._id }}"
-    ></large-slideshow-card>
-    <div class="homepage-category-slide-stacked-cards">
-      <small-slideshow-card
-        *ngIf="activeSlidesArray[3]"
-        imageUrl="{{
-          dishImagesData[
-            retrievedDataFromParent[3].selectedRecipeDishImageIndex
-          ].imageLocation
-        }}"
-        title="{{ retrievedDataFromParent[3].title }}"
-        recipeId="{{ retrievedDataFromParent[3]._id }}"
-      ></small-slideshow-card>
-      <small-slideshow-card
-        *ngIf="activeSlidesArray[4]"
-        imageUrl="{{
-          dishImagesData[
-            retrievedDataFromParent[4].selectedRecipeDishImageIndex
-          ].imageLocation
-        }}"
-        title="{{ retrievedDataFromParent[4].title }}"
-        recipeId="{{ retrievedDataFromParent[4]._id }}"
-      ></small-slideshow-card>
-    </div>
+<div
+  class="homepage-category-slide"
+  *ngIf="retrievedDataFromParent.length !== 0"
+>
+  <div class="homepage-slides-title-card" *ngIf="!windowResizedTo605Pixels">
+    <h6 class="homepage-slides-title">{{ slideTitle }}</h6>
+    <img
+      class="chicken-slide-title-underline"
+      src="assets/images/chalk-highlights/chalk-underline.png"
+      alt="underline"
+    />
+    <h6 class="homepage-slides-title">Dishs</h6>
+    <img
+      class="chicken-slide-title-underline-small"
+      src="assets/images/chalk-highlights/chalk-underline.png"
+      alt="underline"
+    />
   </div>
-  <div class="homepage-slideshow-configuration" *ngIf="configurationOne">
-    <div class="homepage-slides-title-card">
-      <h6 class="homepage-slides-title">{{ slideTitle }}</h6>
-      <img
-        class="chicken-slide-title-underline"
-        src="assets/images/chalk-highlights/chalk-underline.png"
-        alt="underline"
-      />
-      <h6 class="homepage-slides-title">Dishs</h6>
-      <img
-        class="chicken-slide-title-underline-small"
-        src="assets/images/chalk-highlights/chalk-underline.png"
-        alt="underline"
-      />
-    </div>
-    <large-slideshow-card
+  <large-slideshow-card
+    *ngIf="activeSlidesArray[2] && configuration === 1"
+    imageUrl="{{
+      dishImagesData[retrievedDataFromParent[2].selectedRecipeDishImageIndex]
+        .imageLocation
+    }}"
+    title="{{ retrievedDataFromParent[2].title }}"
+    cookingTime="{{ retrievedDataFromParent[2].cookingTime }}"
+    [tagsImageArray]="renderReadyIcons"
+    recipeId="{{ retrievedDataFromParent[2]._id }}"
+  ></large-slideshow-card>
+  <div class="homepage-category-slide-stacked-cards">
+    <small-slideshow-card
       *ngIf="activeSlidesArray[0]"
       imageUrl="{{
         dishImagesData[retrievedDataFromParent[0].selectedRecipeDishImageIndex]
           .imageLocation
       }}"
       title="{{ retrievedDataFromParent[0].title }}"
-      cookingTime="{{ retrievedDataFromParent[0].cookingTime }}"
-      [tagsImageArray]="renderReadyIcons"
       recipeId="{{ retrievedDataFromParent[0]._id }}"
-    ></large-slideshow-card>
-
-    <div class="homepage-category-slide-stacked-cards">
-      <small-slideshow-card
-        *ngIf="activeSlidesArray[1]"
-        imageUrl="{{
-          dishImagesData[
-            retrievedDataFromParent[1].selectedRecipeDishImageIndex
-          ].imageLocation
-        }}"
-        title="{{ retrievedDataFromParent[1].title }}"
-        recipeId="{{ retrievedDataFromParent[1]._id }}"
-      ></small-slideshow-card>
-      <small-slideshow-card
-        *ngIf="activeSlidesArray[2]"
-        imageUrl="{{
-          dishImagesData[
-            retrievedDataFromParent[2].selectedRecipeDishImageIndex
-          ].imageLocation
-        }}"
-        title="{{ retrievedDataFromParent[2].title }}"
-        recipeId="{{ retrievedDataFromParent[2]._id }}"
-      ></small-slideshow-card>
-    </div>
-
-    <div class="homepage-category-slide-stacked-cards">
-      <small-slideshow-card
-        *ngIf="activeSlidesArray[3]"
-        imageUrl="{{
-          dishImagesData[
-            retrievedDataFromParent[3].selectedRecipeDishImageIndex
-          ].imageLocation
-        }}"
-        title="{{ retrievedDataFromParent[3].title }}"
-        recipeId="{{ retrievedDataFromParent[3]._id }}"
-      ></small-slideshow-card>
-      <small-slideshow-card
-        *ngIf="activeSlidesArray[4]"
-        imageUrl="{{
-          dishImagesData[
-            retrievedDataFromParent[4].selectedRecipeDishImageIndex
-          ].imageLocation
-        }}"
-        title="{{ retrievedDataFromParent[4].title }}"
-        recipeId="{{ retrievedDataFromParent[4]._id }}"
-      ></small-slideshow-card>
-    </div>
+    ></small-slideshow-card>
+    <small-slideshow-card
+      *ngIf="activeSlidesArray[1]"
+      imageUrl="{{
+        dishImagesData[retrievedDataFromParent[1].selectedRecipeDishImageIndex]
+          .imageLocation
+      }}"
+      title="{{ retrievedDataFromParent[1].title }}"
+      recipeId="{{ retrievedDataFromParent[1]._id }}"
+    ></small-slideshow-card>
   </div>
-  <div class="homepage-slideshow-configuration" *ngIf="configurationTwo">
-    <div class="homepage-slides-title-card">
-      <h6 class="homepage-slides-title">{{ slideTitle }}</h6>
-      <img
-        class="chicken-slide-title-underline"
-        src="assets/images/chalk-highlights/chalk-underline.png"
-        alt="underline"
-      />
-      <h6 class="homepage-slides-title">Dishs</h6>
-      <img
-        class="chicken-slide-title-underline-small"
-        src="assets/images/chalk-highlights/chalk-underline.png"
-        alt="underline"
-      />
-    </div>
-    <div class="homepage-category-slide-stacked-cards">
-      <small-slideshow-card
-        *ngIf="activeSlidesArray[0]"
-        imageUrl="{{
-          dishImagesData[
-            retrievedDataFromParent[0].selectedRecipeDishImageIndex
-          ].imageLocation
-        }}"
-        title="{{ retrievedDataFromParent[0].title }}"
-        recipeId="{{ retrievedDataFromParent[0]._id }}"
-      ></small-slideshow-card>
-      <small-slideshow-card
-        *ngIf="activeSlidesArray[1]"
-        imageUrl="{{
-          dishImagesData[
-            retrievedDataFromParent[1].selectedRecipeDishImageIndex
-          ].imageLocation
-        }}"
-        title="{{ retrievedDataFromParent[1].title }}"
-        recipeId="{{ retrievedDataFromParent[1]._id }}"
-      ></small-slideshow-card>
-    </div>
-
-    <div class="homepage-category-slide-stacked-cards">
-      <small-slideshow-card
-        *ngIf="activeSlidesArray[2]"
-        imageUrl="{{
-          dishImagesData[
-            retrievedDataFromParent[2].selectedRecipeDishImageIndex
-          ].imageLocation
-        }}"
-        title="{{ retrievedDataFromParent[2].title }}"
-        recipeId="{{ retrievedDataFromParent[2]._id }}"
-      ></small-slideshow-card>
-      <small-slideshow-card
-        *ngIf="activeSlidesArray[3]"
-        imageUrl="{{
-          dishImagesData[
-            retrievedDataFromParent[3].selectedRecipeDishImageIndex
-          ].imageLocation
-        }}"
-        title="{{ retrievedDataFromParent[3].title }}"
-        recipeId="{{ retrievedDataFromParent[3]._id }}"
-      ></small-slideshow-card>
-    </div>
-    <large-slideshow-card
+  <large-slideshow-card
+    *ngIf="activeSlidesArray[2] && configuration === 0"
+    imageUrl="{{
+      dishImagesData[retrievedDataFromParent[2].selectedRecipeDishImageIndex]
+        .imageLocation
+    }}"
+    title="{{ retrievedDataFromParent[2].title }}"
+    cookingTime="{{ retrievedDataFromParent[2].cookingTime }}"
+    [tagsImageArray]="renderReadyIcons"
+    recipeId="{{ retrievedDataFromParent[2]._id }}"
+  ></large-slideshow-card>
+  <div
+    class="homepage-category-slide-stacked-cards"
+    *ngIf="activeSlidesArray[3]"
+  >
+    <small-slideshow-card
+      *ngIf="activeSlidesArray[3]"
+      imageUrl="{{
+        dishImagesData[retrievedDataFromParent[3].selectedRecipeDishImageIndex]
+          .imageLocation
+      }}"
+      title="{{ retrievedDataFromParent[3].title }}"
+      recipeId="{{ retrievedDataFromParent[3]._id }}"
+    ></small-slideshow-card>
+    <small-slideshow-card
       *ngIf="activeSlidesArray[4]"
       imageUrl="{{
         dishImagesData[retrievedDataFromParent[4].selectedRecipeDishImageIndex]
           .imageLocation
       }}"
       title="{{ retrievedDataFromParent[4].title }}"
-      cookingTime="{{ retrievedDataFromParent[4].cookingTime }}"
-      [tagsImageArray]="renderReadyIcons"
       recipeId="{{ retrievedDataFromParent[4]._id }}"
-    ></large-slideshow-card>
+    ></small-slideshow-card>
   </div>
+  <large-slideshow-card
+    *ngIf="activeSlidesArray[2] && configuration === 2"
+    imageUrl="{{
+      dishImagesData[retrievedDataFromParent[2].selectedRecipeDishImageIndex]
+        .imageLocation
+    }}"
+    title="{{ retrievedDataFromParent[2].title }}"
+    cookingTime="{{ retrievedDataFromParent[2].cookingTime }}"
+    [tagsImageArray]="renderReadyIcons"
+    recipeId="{{ retrievedDataFromParent[2]._id }}"
+  ></large-slideshow-card>
 </div>

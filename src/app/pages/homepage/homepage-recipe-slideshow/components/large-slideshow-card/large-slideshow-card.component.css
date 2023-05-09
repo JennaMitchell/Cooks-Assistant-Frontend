@@ -1,13 +1,14 @@
 .homepage-slideshow-large-card-main-container {
   min-width: calc((250 / var(--base) * 1rem));
+  width: calc((250 / var(--base) * 1rem));
   max-width: calc((250 / var(--base) * 1rem));
   min-height: calc((250 / var(--base) * 1rem));
+  height: calc((250 / var(--base) * 1rem));
   max-height: calc(250 / var(--base) * 1rem);
   display: grid;
-
   grid-template-rows: 1fr max-content;
-  grid-template-columns: 1fr;
-
+  grid-template-columns: 100%;
+  grid-auto-flow: column;
   row-gap: 2.5px;
   padding: 10px;
   box-sizing: border-box;
@@ -15,12 +16,21 @@
   border-radius: 10px;
   transition: all 0.5s;
   border: none;
+  overflow: hidden;
 }
-
-.homepage-slideshow-large-card-image {
+.homepage-slideshow-large-card-image-container {
   width: max(100%, 100%);
   height: max(100%, 100%);
-  object-fit: cover;
+  position: relative;
+}
+.homepage-slideshow-large-card-image {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+
+  width: max(100%, 100%);
+  height: max(100%, 100%);
+  object-fit: fill;
 }
 .homepage-slideshow-large-card-title {
   height: max-content;
@@ -79,4 +89,71 @@
   width: max(100%, 100%);
   height: max-content;
   max-height: max-content;
+}
+@media (max-width: 1080px) {
+  .homepage-slideshow-large-card-main-container {
+    min-width: calc((200 / var(--base) * 1rem));
+    max-width: calc((200 / var(--base) * 1rem));
+    min-height: calc((200 / var(--base) * 1rem));
+    max-height: calc(200 / var(--base) * 1rem);
+  }
+  .homepage-slideshow-large-card-title {
+    font-size: var(--r12);
+  }
+  .homepage-slideshow-large-card-time-to-cook {
+    font-size: var(--r10);
+  }
+  .homepage-slideshow-large-card-tag-image {
+    width: max(15px, 15px);
+    height: max(15px, 15px);
+  }
+  .homepage-slideshow-large-card-tag-container {
+    gap: 7.5px;
+  }
+}
+@media (max-width: 805px) {
+  .homepage-slideshow-large-card-main-container {
+    min-width: calc((175 / var(--base) * 1rem));
+    width: calc((175 / var(--base) * 1rem));
+    max-width: calc((175 / var(--base) * 1rem));
+    min-height: calc((175 / var(--base) * 1rem));
+    height: calc((175 / var(--base) * 1rem));
+    max-height: calc(175 / var(--base) * 1rem);
+  }
+  .homepage-slideshow-large-card-title {
+    font-size: var(--r10);
+  }
+  .homepage-slideshow-large-card-time-to-cook {
+    font-size: var(--r8);
+  }
+  .homepage-slideshow-large-card-tag-image {
+    width: max(15px, 15px);
+    height: max(15px, 15px);
+  }
+  .homepage-slideshow-large-card-tag-container {
+    gap: 7.5px;
+  }
+}
+@media (max-width: 375px) {
+  .homepage-slideshow-large-card-main-container {
+    min-width: calc((150 / var(--base) * 1rem));
+    width: calc((150 / var(--base) * 1rem));
+    max-width: calc((150 / var(--base) * 1rem));
+    min-height: calc((150 / var(--base) * 1rem));
+    height: calc((150 / var(--base) * 1rem));
+    max-height: calc((150 / var(--base) * 1rem));
+  }
+  .homepage-slideshow-large-card-title {
+    font-size: var(--r10);
+  }
+  .homepage-slideshow-large-card-time-to-cook {
+    font-size: var(--r8);
+  }
+  .homepage-slideshow-large-card-tag-image {
+    width: max(15px, 15px);
+    height: max(15px, 15px);
+  }
+  .homepage-slideshow-large-card-tag-container {
+    gap: 7.5px;
+  }
 }

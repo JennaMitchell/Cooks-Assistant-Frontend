@@ -10,8 +10,8 @@ import { HomepageFullRecipeSlideshowModule } from './homepage-full-recipe-slides
 import { HomepageRecipeCategories } from './homepage-recipe-categories/homepage-recipe-categories.component';
 import { HomepageCuisineSectionModule } from './homepage-cuisines-section/homepage-cuisines-section.module';
 
-import { HomepageSocialMediaSectionModule } from './homepage-social-media-section/homepage-social-media-section.module';
-import { HomepageFooterModule } from './homepage-footer/homepage-footer.module';
+import { HomepageLearningSectionModule } from './homepage-learning-section/hompage-learning-section.module';
+import { HomepageFooter } from './homepage-footer/homepage-footer.component';
 import { StoreModule } from '@ngrx/store';
 
 import { ErrorPopupModule } from 'src/app/popups/error/error-popup.module';
@@ -20,12 +20,14 @@ import { LoggedOutNavBarModule } from 'src/app/nav-bar/logged-out-nav-bar/logged
 import { SuccessPopupModule } from 'src/app/popups/success/success-popup.module';
 import { SearchPopupModule } from 'src/app/popups/search-popup/search-popup.module';
 import { HomepageCategoryPopupComponent } from 'src/app/popups/homepage-category-popup/homepage-category-popup.component';
+import { HomepageMobilePreviewPopupModule } from 'src/app/popups/homepage-mobile-preview-section-popup/homepage-mobile-preview-popup.module';
 @NgModule({
   declarations: [
     Homepage,
     HomepageTopNavBar,
     HomepageRecipeCategories,
     HomepageCategoryPopupComponent,
+    HomepageFooter,
   ],
 
   imports: [
@@ -33,18 +35,15 @@ import { HomepageCategoryPopupComponent } from 'src/app/popups/homepage-category
     CommonModule,
     HomepageRecipeSlideshowModule,
     HomepageFullRecipeSlideshowModule,
-
     HomepageCuisineSectionModule,
-
-    HomepageFooterModule,
-    HomepageSocialMediaSectionModule,
+    HomepageLearningSectionModule,
     StoreModule,
-
     ErrorPopupModule,
     LoggedInNavBarModule,
     LoggedOutNavBarModule,
     SuccessPopupModule,
     SearchPopupModule,
+    HomepageMobilePreviewPopupModule,
   ],
 })
 export class HomepageModule {}

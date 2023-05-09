@@ -13,7 +13,7 @@
       *ngIf="slideshowType === 'cooking-time'"
     />
 
-    <h6 class="homepage-new-recipe-card-title">{{ recipeTitle }}</h6>
+    <p class="homepage-new-recipe-card-title">{{ recipeTitle }}</p>
     <div class="homepage-new-recipe-card-id-container">
       <div class="homepage-new-recipe-card-cooking-time-container">
         <img
@@ -33,7 +33,12 @@
         </div>
       </div>
     </div>
-    <p class="homepage-new-recipe-description">{{ recipeDescription }}</p>
+    <p
+      class="homepage-new-recipe-description"
+      *ngIf="recipeDescription !== 'NA'"
+    >
+      {{ recipeDescription }}
+    </p>
     <div
       class="homepage-new-recipe-ratings-container"
       *ngIf="+numberOfReviews !== 0"

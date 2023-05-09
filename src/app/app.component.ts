@@ -5,6 +5,7 @@ import {
   lockWebpageViewPortSelector,
   refreshWarningPopupActiveSelector,
   successPopupActiveSelector,
+  termsOfServicePopupActiveSelector,
 } from 'libs/store/popups/popup-selectors';
 import {
   loginPopupActiveSelector,
@@ -54,6 +55,11 @@ export class AppComponent {
     successPopupActiveSelector
   );
 
+  termsOfServicePopupActiveObserver$ = this.store.select(
+    termsOfServicePopupActiveSelector
+  );
+  termsOfServicePopupActive = false;
+
   loggedIn = false;
   refreshWarningPopupActive = false;
   signupPopupActive = false;
@@ -100,6 +106,9 @@ export class AppComponent {
     });
     this.successMessagePopupActiveObserver$.subscribe((value) => {
       this.successMessagePopupActive = value;
+    });
+    this.termsOfServicePopupActiveObserver$.subscribe((value) => {
+      this.termsOfServicePopupActive = value;
     });
   }
   ngAfterViewChecked() {

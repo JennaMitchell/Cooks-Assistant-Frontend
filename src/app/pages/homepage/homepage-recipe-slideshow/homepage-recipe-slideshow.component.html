@@ -35,18 +35,22 @@
     [configuration]="activeConfigurationNumber"
     [slideTitle]="activeDishCategory"
     [retrievedDataFromParent]="displayData"
-    *ngIf="activeSlides[0]"
+    *ngIf="activeSlides[0] && !loadingBarActive"
   ></slide-display>
   <slide-display
     [configuration]="activeConfigurationNumber"
     [slideTitle]="activeDishCategory"
     [retrievedDataFromParent]="displayData"
-    *ngIf="activeSlides[1]"
+    *ngIf="activeSlides[1] && !loadingBarActive"
   ></slide-display>
   <slide-display
     [configuration]="activeConfigurationNumber"
     [slideTitle]="activeDishCategory"
     [retrievedDataFromParent]="displayData"
-    *ngIf="activeSlides[2]"
+    *ngIf="activeSlides[2] && !loadingBarActive"
   ></slide-display>
+  <loading-bar
+    *ngIf="loadingBarActive"
+    [loadingbarActive]="loadingBarActive"
+  ></loading-bar>
 </div>

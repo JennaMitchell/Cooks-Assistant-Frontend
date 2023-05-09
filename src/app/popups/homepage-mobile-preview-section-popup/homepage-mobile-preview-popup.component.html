@@ -1,0 +1,27 @@
+<div
+  class="homepage-mobile-preview-popup-main-container"
+  *ngIf="retrievedButtonsData.length !== 0"
+  [ngClass]="{
+    'homepage-mobile-preview-popup-main-container-four':
+      numberOfRows === 'four',
+    'homepage-mobile-preview-popup-main-container-three':
+      numberOfRows === 'three',
+    'homepage-mobile-preview-popup-main-container-two': numberOfRows === 'two'
+  }"
+>
+  <button
+    class="homepage-mobile-preview-button"
+    *ngFor="let buttonData of retrievedButtonsData"
+    (click)="categoryButtonClickHandler($event)"
+    id="{{ buttonData.id }}"
+  >
+    <div class="homepage-mobile-preview-button-image-container">
+      <img
+        class="homepage-mobile-preview-button-image"
+        [src]="buttonData.iconLocation"
+        [alt]="buttonData.altText"
+      />
+    </div>
+    <p class="homepage-mobile-preview-button-title">{{ buttonData.title }}</p>
+  </button>
+</div>

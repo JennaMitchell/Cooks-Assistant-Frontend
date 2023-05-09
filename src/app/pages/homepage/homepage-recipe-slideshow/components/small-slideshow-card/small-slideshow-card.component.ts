@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./small-slideshow-card.component.css'],
   providers: [RecipeTagFilter],
 })
-export class SmallSlideShowCard {
+export class HomepageSmallSlideShowCardComponent {
   constructor(private router: Router) {}
   @Input('title') title = '';
   @Input('imageUrl') imageUrl = '';

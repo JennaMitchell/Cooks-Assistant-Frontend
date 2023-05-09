@@ -50,11 +50,13 @@ body {
   --r16: calc((16 / var(--base) * 1rem));
   --r12: calc((12 / var(--base) * 1rem));
   --r10: calc((10 / var(--base) * 1rem));
+  --r8: calc((8 / var(--base) * 1rem));
 
   --login-popup-backdrop-z-index: 12;
   --login-popup-main-container-z-index: 13;
   --login-popup-input-label-z-index: 14;
   --error-popup-main-container-z-index: 15;
+  --homepage-mobile-preview-popup-main-container-z-index: 10;
 
   --homepage-nav-button-text-z-index: 3;
   --homepage-nav-button-highlight-z-index: 2;

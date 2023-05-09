@@ -1,11 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { LargeSlideShowCard } from './large-slideshow-card.component';
-
+import { HomepageLargeSlideShowCardComponent } from './large-slideshow-card.component';
 @NgModule({
-  declarations: [LargeSlideShowCard],
+  declarations: [HomepageLargeSlideShowCardComponent],
 
   imports: [CommonModule],
-  exports: [LargeSlideShowCard],
+  exports: [HomepageLargeSlideShowCardComponent],
 })
-export class LargeSlideShowCardModule {}
+export class HomepageLargeSlideShowCardModule {}

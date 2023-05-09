@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./large-slideshow-card.component.css'],
   providers: [],
 })
-export class LargeSlideShowCard {
+export class HomepageLargeSlideShowCardComponent {
   constructor(private router: Router) {}
   @Input('title') title = '';
   @Input('imageUrl') imageUrl = '';

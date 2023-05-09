@@ -1,12 +1,12 @@
 .homepage-footer-main-container {
-  width: 1000px;
-  max-width: 1000px;
+  width: max(100%, 100%);
   max-height: max-content;
   display: flex;
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
-  padding: 0px 40px;
+  padding: 0px 20px;
+  padding-top: 20px;
 }
 .homepage-footer-company-info-links-container,
 .homepage-footer-company-social-media-links-container {
@@ -18,13 +18,20 @@
   max-width: max-content;
   height: max-content;
 }
+.homepage-footer-company-social-media-link {
+  width: max-content;
+  max-width: max-content;
+  max-height: max-content;
+  padding: 0px;
+  margin: 0px;
+}
 .homepage-footer-company-info-link {
   width: max-content;
   max-width: max-content;
   height: max-content;
   padding: 0px;
   margin: 0px;
-  border: 0px;
+  border: none;
   font-family: var(--google-font);
   color: var(--black);
   font-size: var(--r18);
@@ -34,20 +41,39 @@
 }
 .homepage-footer-company-info-link:hover {
   color: var(--main1000);
-  cursor: pointer;
-}
-.homepage-footer-company-social-media-link {
-  width: calc((20 / var(--base) * 1rem));
-  max-width: calc((20 / var(--base) * 1rem));
-  height: calc((20 / var(--base) * 1rem));
-  max-height: calc((20 / var(--base) * 1rem));
-  object-fit: fill;
 
-  padding: 5px;
-  border-radius: 50%;
-  transition: all 1s;
+  text-decoration: underline;
 }
-.homepage-footer-company-social-media-link:hover {
+.homepage-footer-company-social-media-link-image {
+  width: calc((25 / var(--base) * 1rem));
+  max-width: calc((25 / var(--base) * 1rem));
+  height: calc((25 / var(--base) * 1rem));
+  max-height: calc((25 / var(--base) * 1rem));
+  object-fit: fill;
+  box-sizing: border-box;
+
+  padding: 3px;
+  border-radius: 50%;
+  transition: all 0.5s;
+}
+.homepage-footer-company-social-media-link-image:hover {
   background-color: var(--main200);
   cursor: pointer;
+}
+@media (max-width: 400px) {
+  .homepage-footer-company-info-link {
+    font-size: var(--r12);
+  }
+  .homepage-footer-company-social-media-link-image {
+    width: calc((20 / var(--base) * 1rem));
+    max-width: calc((20 / var(--base) * 1rem));
+    height: calc((20 / var(--base) * 1rem));
+    max-height: calc((20 / var(--base) * 1rem));
+    object-fit: fill;
+    box-sizing: border-box;
+
+    padding: 3px;
+    border-radius: 50%;
+    transition: all 0.5s;
+  }
 }

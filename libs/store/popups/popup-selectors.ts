@@ -124,3 +124,10 @@ export const refreshWarningPopupActiveSelector = createSelector(
     return state.refreshWarningPopupActive;
   }
 );
+
+export const termsOfServicePopupActiveSelector = createSelector(
+  selectPopupStateSlice,
+  (state) => {
+    return state.termsOfServicePopupActive;
+  }
+);

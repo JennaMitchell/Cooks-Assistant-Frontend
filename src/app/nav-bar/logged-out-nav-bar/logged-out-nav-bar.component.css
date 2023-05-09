@@ -1,6 +1,7 @@
 .homepage-user-bar {
   position: absolute;
-  width: min(1000px, 100vw);
+  max-width: max-content;
+  width: max-content;
   max-height: max-content;
   display: flex;
   align-items: flex-start;
@@ -11,8 +12,7 @@
   padding: 0px;
   margin: 0px 0px;
   top: 0%;
-  left: 50%;
-  transform: translateX(-50%);
+  right: 50px;
 }
 .homepage-login-button {
   max-width: max-content;
@@ -64,4 +64,41 @@
 }
 .homepageshowlogo {
   display: flex;
+}
+@media (max-width: 500px) {
+  .homepage-user-bar {
+    right: 10px;
+  }
+  .homepage-login-button {
+    font-size: var(--r10);
+    padding: 7.5px 10px;
+  }
+  .homepage-login-button-logo {
+    width: max(15px, 15px);
+    height: max(15px, 15px);
+  }
+  .homepage-login-button-round-left-corner {
+    border-bottom-left-radius: 5px;
+  }
+  .homepage-login-button-round-right-corner {
+    border-bottom-right-radius: 5px;
+  }
+}
+@media (max-width: 300px) {
+  .homepage-user-bar {
+    right: 10px;
+  }
+  .homepage-login-button {
+    font-size: var(--r8);
+  }
+  .homepage-login-button-logo {
+    width: max(12.5px, 12.5px);
+    height: max(12.5px, 12.5px);
+  }
+  .homepage-login-button-round-left-corner {
+    border-bottom-left-radius: 5px;
+  }
+  .homepage-login-button-round-right-corner {
+    border-bottom-right-radius: 5px;
+  }
 }

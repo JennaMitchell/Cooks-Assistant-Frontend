@@ -1,0 +1,72 @@
+<div class="homepage-new-recipe-slideshow-slide-tracker">
+  <button
+    class="homepage-new-recipe-slideshow-slide-tracker-arrow-button"
+    *ngIf="arrowButtonsActive"
+    (click)="leftArrowButtonHandler()"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="w-6 h-6 homepage-new-recipe-slideshow-slide-tracker-arrow-button-icon"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M15.75 19.5L8.25 12l7.5-7.5"
+      />
+    </svg>
+  </button>
+
+  <button
+    class="homepage-new-recipe-slideshow-slide-tracker-button homepage-new-recipe-slideshow-slide-tracker-button-active"
+    id="homepage-new-recipe-slideshow-left-tracker-button"
+    *ngIf="numberOfRecipes >= 1"
+  ></button>
+
+  <p
+    class="homepage-new-recipe-slideshow-slide-tracker-dots"
+    *ngIf="leftDotsActive"
+  >
+    ...
+  </p>
+  <button
+    class="homepage-new-recipe-slideshow-slide-tracker-button"
+    id="homepage-new-recipe-slideshow-center-tracker-button"
+    *ngIf="middlePageButtonActive"
+  ></button>
+  <p
+    class="homepage-new-recipe-slideshow-slide-tracker-dots"
+    *ngIf="rightDotsActive"
+  >
+    ...
+  </p>
+  <button
+    class="homepage-new-recipe-slideshow-slide-tracker-button"
+    id="homepage-new-recipe-slideshow-right-tracker-button"
+    *ngIf="numberOfRecipes >= 2"
+  ></button>
+
+  <button
+    class="homepage-new-recipe-slideshow-slide-tracker-arrow-button"
+    *ngIf="arrowButtonsActive"
+    (click)="rightArrowButtonHandler()"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg "
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="w-6 h-6 homepage-new-recipe-slideshow-slide-tracker-arrow-button-icon"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M8.25 4.5l7.5 7.5-7.5 7.5"
+      />
+    </svg>
+  </button>
+</div>

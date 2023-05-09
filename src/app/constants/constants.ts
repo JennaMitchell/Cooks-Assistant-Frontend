@@ -1,3 +1,10 @@
+export interface ButtonDataInterface {
+  title: string;
+  iconLocation: string;
+  id: string;
+  altText: string;
+}
+
 export const databaseUrl = "https://cooks-assistant-app.herokuapp.com";
 export const capitalLettersArray = [
   "A",

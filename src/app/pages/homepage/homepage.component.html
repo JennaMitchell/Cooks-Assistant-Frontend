@@ -1,4 +1,4 @@
-<div class="homepage-backdrop">
+<main class="homepage-backdrop">
   <logged-out-nav-bar *ngIf="!loggedIn"></logged-out-nav-bar>
   <logged-in-nav-bar *ngIf="loggedIn"></logged-in-nav-bar>
 
@@ -22,9 +22,11 @@
           slideshowType="cooking-time"
         ></homepage-full-recipe-slideshow>
       </div>
-      <homepage-recipe-categories></homepage-recipe-categories>
+      <homepage-recipe-categories
+        *ngIf="!windowWidth1005Pixels"
+      ></homepage-recipe-categories>
     </div>
-    <homepage-social-media-section></homepage-social-media-section>
+    <homepage-learning-section></homepage-learning-section>
     <homepage-footer></homepage-footer>
   </div>
 
@@ -32,4 +34,4 @@
   <homepage-category-popup
     *ngIf="homepageCategoryPopupActive"
   ></homepage-category-popup>
-</div>
+</main>

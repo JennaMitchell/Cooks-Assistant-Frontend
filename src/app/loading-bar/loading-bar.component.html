@@ -1,0 +1,11 @@
+<div class="loading-bar-main-container">
+  <div
+    class="loading-bar-moving-bar"
+    [ngClass]="{
+      'loading-bar-active': actionBarActive,
+      'loading-bar-inactive': !actionBarActive,
+      'loading-bar-transition-set': loadingTransitionSet,
+      'loading-bar-transition-unset': !loadingTransitionSet
+    }"
+  ></div>
+</div>

@@ -6,18 +6,25 @@ import { RecipeTemplateSavedDataInterfaceWithId } from 'src/app/utilities/api-ca
 import { dishImagesData } from 'src/app/constants/dish-image-data';
 import { Store } from '@ngrx/store';
 import { selectedHomepageMealNationalitySelector } from 'libs/store/homepage/homepage-selectors';
+import { MediaQueryService } from 'src/app/utilities/media-queries-service/media-queries.service';
 @Component({
   selector: 'homepage-cuisines-section',
   templateUrl: './homepage-cuisines-section.component.html',
   styleUrls: ['./homepage-cuisines-section.component.css'],
-  providers: [RecipeTagFilter, RecipeDataApiCalls, ActivatePopupService],
+  providers: [
+    RecipeTagFilter,
+    RecipeDataApiCalls,
+    ActivatePopupService,
+    MediaQueryService,
+  ],
 })
 export class HomepageCuisinesSection {
   constructor(
     private recipeDataApiCallsService: RecipeDataApiCalls,
     private activatePopupService: ActivatePopupService,
     private store: Store,
-    private tagFilterService: RecipeTagFilter
+    private tagFilterService: RecipeTagFilter,
+    private mediaQueryService: MediaQueryService
   ) {}
 
   dishImagesData = dishImagesData;
@@ -38,6 +45,9 @@ export class HomepageCuisinesSection {
     id: string;
     altText: string;
   }[] = [];
+  windowWidth1050Pixels = false;
+  windowWidth580Pixels = false;
+  mobileMenuButtonActive = false;
 
   async getDataByCategory(categoryToRetrieve: string) {
     try {
@@ -98,6 +108,17 @@ export class HomepageCuisinesSection {
       this.renderReadyIcons = retirevedTagsImageArray;
     }
   }
+  homepageFullRecipeSlideWindowResizeHandler() {
+    this.windowWidth1050Pixels = window.matchMedia(
+      '(max-width: 1050px)'
+    ).matches;
+
+    this.windowWidth580Pixels = window.matchMedia('(max-width:580px)').matches;
+  }
+
+  mobileMenuClickHandler() {
+    this.mobileMenuButtonActive = !this.mobileMenuButtonActive;
+  }
   ngOnInit() {
     this.selectedHomepageMealNationalitySelectorObserver$.subscribe((value) => {
       this.selectedHomepageMealNationality = value;
@@ -107,6 +128,14 @@ export class HomepageCuisinesSection {
       } else {
         this.getDataByCategory(value);
       }
+    });
+
+    this.mediaQueryService.moduleTopContainer100PercentWidthUpdate(
+      'homepage-cuisine-section-main-container'
+    );
+    this.homepageFullRecipeSlideWindowResizeHandler();
+    window.addEventListener('resize', () => {
+      this.homepageFullRecipeSlideWindowResizeHandler();
     });
   }
 }

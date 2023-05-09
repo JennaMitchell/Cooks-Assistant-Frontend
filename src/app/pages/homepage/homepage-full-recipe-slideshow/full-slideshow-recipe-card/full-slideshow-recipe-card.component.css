@@ -6,6 +6,7 @@
   background-repeat: no-repeat;
   background-size: contain;
   position: relative;
+  justify-content: space-between;
 
   max-width: calc(700 / var(--base) * 1rem);
   width: calc(700 / var(--base) * 1rem);
@@ -89,6 +90,7 @@
   margin: 0px;
   color: inherit;
   font-size: var(--r16);
+  font-family: var(--google-font);
   max-width: 100%;
 }
 .homepage-new-recipe-star-rating {
@@ -204,4 +206,113 @@
 
   padding-top: 10px;
   padding-bottom: 10px;
+}
+@media (max-width: 900px) {
+  .homepage-new-recipe-card-main-container {
+    max-width: 100%;
+    width: 100%;
+    min-width: 100%;
+  }
+  .homepage-new-recipe-info-container {
+    padding: 40px 20px;
+  }
+}
+@media (max-width: 850px) {
+  .homepage-new-recipe-card-title {
+    font-size: var(--r26);
+  }
+  .homepage-new-recipe-card-cooking-time {
+    font-size: var(--r10);
+  }
+  .homepage-new-recipe-card-tag {
+    font-size: var(--r10);
+  }
+  .homepage-new-recipe-description {
+    font-size: var(--r14);
+  }
+  .homepage-new-recipe-count-text {
+    font-size: var(--r10);
+  }
+  .homepage-new-recipe-make-button {
+    font-size: var(--r18);
+  }
+  .homepage-new-recipe-card-cooking-time {
+    font-size: var(--r10);
+  }
+  .homepage-new-recipe-review-number-text {
+    font-size: var(--r10);
+  }
+}
+@media (max-width: 650px) {
+  .homepage-new-recipe-card-id-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0px;
+  }
+
+  .homepage-new-recipe-card-cooking-time-container {
+    gap: 10px;
+    border-right: 0px solid white;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    align-self: flex-start;
+    text-align: left;
+  }
+
+  .homepage-new-recipe-card-title {
+    font-size: var(--r22);
+  }
+  .homepage-new-recipe-card-cooking-time {
+    font-size: var(--r8);
+  }
+  .homepage-new-recipe-card-tag {
+    font-size: var(--r8);
+  }
+  .homepage-new-recipe-description {
+    font-size: var(--r12);
+  }
+  .homepage-new-recipe-count-text {
+    font-size: var(--r8);
+  }
+  .homepage-new-recipe-make-button {
+    font-size: var(--r12);
+  }
+  .homepage-new-recipe-card-cooking-time {
+    font-size: var(--r8);
+  }
+  .homepage-new-recipe-review-number-text {
+    font-size: var(--r18);
+  }
+  .homepage-new-recipe-card-main-container,
+  .homepage-new-recipe-info-container {
+    min-height: calc(275 / var(--base) * 1rem);
+    height: calc(275 / var(--base) * 1rem);
+    max-height: calc(275 / var(--base) * 1rem);
+  }
+}
+@media (max-width: 400px) {
+  .homepage-new-recipe-card-main-container {
+    min-width: 100%;
+    width: 100%;
+    max-width: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  .homepage-new-recipe-info-container {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    grid-column: 1 / span 1;
+  }
+  .homepage-recipe-icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+
+    max-width: calc(30 / var(--base) * 1rem);
+    min-width: calc(30 / var(--base) * 1rem);
+    min-height: calc(20 / var(--base) * 1rem);
+    max-height: calc(20 / var(--base) * 1rem);
+  }
 }

@@ -40,5 +40,8 @@ export const PopupActions = createActionGroup({
     'Update RefreshWarningPopupActive': props<{
       refreshWarningPopupActive: boolean;
     }>(),
+    'Update TermsOfServicePopupActive': props<{
+      termsOfServicePopupActive: boolean;
+    }>(),
   },
 });

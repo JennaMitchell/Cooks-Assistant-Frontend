@@ -1,0 +1,34 @@
+.loading-bar-main-container {
+  position: absolute;
+  width: max(50%, 50%);
+  height: max(5%, 5%);
+  justify-self: center;
+  align-self: center;
+  overflow: hidden;
+  background-color: rgb(165, 165, 165);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.loading-bar-moving-bar {
+  width: max(15%, 15%);
+  height: max(100%, 100%);
+  position: absolute;
+  top: 0px;
+  left: -15%;
+  background: linear-gradient(to right, rgb(165, 165, 165), white);
+}
+
+.loading-bar-transition-set {
+  transition: all 3s;
+}
+.loading-bar-transition-unset {
+  transition: all 0s;
+}
+.loading-bar-inactive {
+  left: -15%;
+}
+
+.loading-bar-active {
+  left: 110%;
+}

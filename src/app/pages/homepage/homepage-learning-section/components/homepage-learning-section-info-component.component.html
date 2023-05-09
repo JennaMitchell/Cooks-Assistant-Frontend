@@ -1,0 +1,40 @@
+<div
+  class="homepage-learning-content-container"
+  id="{{ sectionData.sectionId }}"
+  (click)="sectionClickHandler($event)"
+  [ngClass]="{
+    'homepage-learning-content-container-left':
+      windowWidth810Pixels && absolutePosition === 'left',
+    'homepage-learning-content-container-right':
+      windowWidth810Pixels && absolutePosition === 'right',
+    'homepage-learning-content-container-center':
+      windowWidth810Pixels && absolutePosition === 'center'
+  }"
+>
+  <div class="homepage-learning-content-title-container">
+    <p class="homepage-learning-section-title">{{ sectionData.title }}</p>
+    <img
+      class="homepage-learning-section-underline"
+      alt="title underline"
+      src="../../../../../assets/images/chalk-highlights/chalk-underline-white.png"
+    />
+  </div>
+  <a
+    class="homepage-learning-section-button-link"
+    href="{{ sectionButtonData.buttonLink }}"
+    *ngFor="let sectionButtonData of sectionData.buttonData"
+  >
+    <button class="homepage-learning-section-button">
+      <div class="homepage-learning-button-image-container">
+        <img
+          class="homepage-learning-button-image"
+          alt="{{ sectionButtonData.buttonImgAltText }}"
+          src="{{ sectionButtonData.buttonImgUrl }}"
+        />
+      </div>
+      <p class="homepage-learning-section-button-title">
+        {{ sectionButtonData.buttonTitle }}
+      </p>
+    </button>
+  </a>
+</div>

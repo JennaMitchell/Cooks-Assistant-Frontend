@@ -1,0 +1,24 @@
+<div class="homepage-learning-main-container">
+  <div class="homepage-learning-section-title-container">
+    <p class="homepage-learning-section-title">Learning Reccomendations</p>
+    <img
+      class="homepage-learning-section-title-underline"
+      alt="title underline"
+      src=" ../../../../../../assets/images/chalk-highlights/chalk-underline-white.png"
+    />
+  </div>
+  <div class="homepage-learning-section-info-container">
+    <homepage-learning-section-info-component
+      *ngFor="
+        let sectionDataEntry of sectionData;
+        let sectionDataEntryIndex = index
+      "
+      [sectionData]="sectionDataEntry"
+      (updateActiveSection)="updateActiveSection($event)"
+      [windowWidth810Pixels]="windowWidth810Pixels"
+      [absolutePosition]="
+        mobileActiveSectionPositionArray[sectionDataEntryIndex]
+      "
+    ></homepage-learning-section-info-component>
+  </div>
+</div>

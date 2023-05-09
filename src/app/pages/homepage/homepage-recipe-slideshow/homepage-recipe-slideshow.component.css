@@ -1,36 +1,32 @@
 .homepage-slideshow-backdrop {
-  width: max(1000px, 1000px);
-  min-height: calc(425 / var(--base) * 1rem);
-  height: calc(425 / var(--base) * 1rem);
-  max-height: calc(425 / var(--base) * 1rem);
+  width: max(100%, 100%);
+  min-height: calc(425 * var(--pixelToRem));
+  height: calc(425 * var(--pixelToRem));
+  max-height: calc(425 * var(--pixelToRem));
   background-image: url("../../../../assets/images/homepage/morocco-blue.png");
   background-position: center;
   position: relative;
   padding: 0px;
   margin: 0px;
-  display: flex;
-  align-items: center;
-  justify-items: space-between;
 }
 .homepage-slideshow-button-left,
 .homepage-slideshow-button-right {
   position: absolute;
   top: 50%;
 
-  width: max(20px, 20px);
-  height: max(20px, 20px);
+  width: max(30 * var(--pixelToRem), 30 * var(--pixelToRem));
+  height: max(100%, 100%);
   border: 0px;
-  background-color: black;
-  color: white;
+  background-color: transparent;
+  color: black;
   z-index: 4;
-  box-shadow: 0px 0px 20px white;
-  border-radius: 10px;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 7.5px;
-  box-sizing: content-box;
-  transform: translateY(-50%);
+  padding: 2.5px;
+  box-sizing: border-box;
+  transform: translateY(-50.2%);
   transition: all 1s;
 }
 .homepage-slideshow-button-left:hover,
@@ -38,10 +34,38 @@
   color: black;
   background-color: white;
   cursor: pointer;
+  box-shadow: 0px 0px 20px white;
 }
 .homepage-slideshow-button-left {
   left: 0px;
 }
 .homepage-slideshow-button-right {
   right: 0px;
+}
+@media (max-width: 1050px) {
+  .homepage-slideshow-backdrop {
+    min-height: calc(350 * var(--pixelToRem));
+    height: calc(350 * var(--pixelToRem));
+    max-height: calc(350 * var(--pixelToRem));
+  }
+}
+@media (max-width: 805px) {
+  .homepage-slideshow-backdrop {
+    min-height: calc(300 * var(--pixelToRem));
+    height: calc(300 * var(--pixelToRem));
+    max-height: calc(300 * var(--pixelToRem));
+  }
+}
+@media (max-width: 605px) {
+  .homepage-slideshow-button-left,
+  .homepage-slideshow-button-right {
+    width: max(20 * var(--pixelToRem), 20 * var(--pixelToRem));
+  }
+}
+@media (max-width: 375px) {
+  .homepage-slideshow-backdrop {
+    min-height: calc(250 * var(--pixelToRem));
+    height: calc(250 * var(--pixelToRem));
+    max-height: calc(250 * var(--pixelToRem));
+  }
 }
