@@ -6,7 +6,7 @@
   align-content: center;
   justify-content: center;
   position: relative;
-  padding: 0px calc(20 * var(--pixelToRem));
+  padding: calc(20 * var(--pixelToRem));
   padding-top: calc(10 * var(--pixelToRem));
   box-sizing: border-box;
 }
@@ -150,8 +150,7 @@
 @media (max-width: 675px) {
   .homepage-nav-bar {
     display: grid;
-    padding: 0px calc(10 * var(--pixelToRem));
-    padding-top: calc(10 * var(--pixelToRem));
+    padding: calc(10 * var(--pixelToRem));
   }
   .homepage-nav-button-logo {
     width: max(calc(30 * var(--pixelToRem)), calc(30 * var(--pixelToRem)));
