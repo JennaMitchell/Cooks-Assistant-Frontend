@@ -13,15 +13,18 @@ import {
 import { backgroundImageData } from 'src/app/constants/constants';
 import { changeRecipeTemplatePopupActiveSelector } from 'libs/store/popups/popup-selectors';
 import { loggedInSelector } from 'libs/store/auth/auth-selectors';
-
+import { MediaQueryService } from 'src/app/utilities/media-queries-service/media-queries.service';
 @Component({
   selector: 'recipe-creator',
   templateUrl: './recipe-creator.component.html',
   styleUrls: ['./recipe-creator.component.css'],
-  providers: [],
+  providers: [MediaQueryService],
 })
 export class RecipeCreatorComponent {
-  constructor(private store: Store) {}
+  constructor(
+    private store: Store,
+    private mediaQueryService: MediaQueryService
+  ) {}
 
   hideEditButtonsActive = false;
 
@@ -94,6 +97,10 @@ export class RecipeCreatorComponent {
     this.store.dispatch(PopupActions.updateLockwebpageviewport({ lock: true }));
   }
 
+  ngAfterViewInit() {
+    this.mediaQueryService.fullViewportWithoutScrollbarSetter();
+  }
+
   ngOnInit() {
     this.backgroundChangerActiveObserver$.subscribe((value) => {
       this.backgroundChangerActiveValue = value;
@@ -126,11 +133,5 @@ export class RecipeCreatorComponent {
     this.recipeChangeImagePopupActiveObserver$.subscribe((value: boolean) => {
       this.recipeChangeImagePopupActive = value;
     });
-
-    const backDropElement = document.getElementsByClassName(
-      'recipe-creator-backdrop'
-    )[0] as HTMLDivElement;
-    const parentBackDropElement = backDropElement.parentElement as HTMLElement;
-    parentBackDropElement.style.overflow = 'hidden';
   }
 }

@@ -2,8 +2,10 @@
   min-height: 100vh;
   height: max-content;
   max-height: max-content;
-  max-width: 100vw;
-  min-width: 100vw;
+  width: max(
+    calc(100vw - var(--scrollbar-width)),
+    calc(100vw - var(--scrollbar-width))
+  );
   position: relative;
   display: flex;
   flex-direction: column;
@@ -17,10 +19,8 @@
 }
 .recipe-browser-main-container {
   background-color: var(--lightwhite);
-  min-width: 740px;
-  width: max-content;
-  max-width: max-content;
-  height: 100%;
+  width: max(900px, 900px);
+  min-height: 80vh;
   max-height: max-content;
   border-radius: 10px;
   position: relative;
@@ -31,13 +31,13 @@
   justify-content: center;
   display: grid;
 
-  grid-template-columns: repeat(3, max-content);
-  grid-template-rows: repeat(3, minmax(180px, max-content));
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 300px);
 
   overflow-x: hidden;
   gap: 30px;
   box-sizing: border-box;
-  padding: 45px 30px;
+  padding: 40px 40px;
 }
 .recipe-browser-nav-menu-button {
   position: fixed;
@@ -93,15 +93,56 @@
   align-self: flex-start;
 }
 @media (max-width: 1000px) {
-  .recipe-browser-backdrop {
-    width: max-content;
-    max-width: max-content;
-    box-sizing: border-box;
-    padding: 50px 40px;
-  }
   .recipe-browser-main-container {
-    width: max-content;
-    max-width: max-content;
-    min-width: max-content;
+    width: max(90%, 90%);
+
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 275px);
+    gap: 30px;
+    padding: 20px;
+  }
+}
+@media (max-width: 800px) {
+  .recipe-browser-main-container {
+    width: max(85%, 85%);
+
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 275px);
+    gap: 30px;
+    padding: 30px;
+  }
+}
+@media (max-width: 575px) {
+  .recipe-browser-main-container {
+    width: max(90%, 90%);
+  }
+}
+@media (max-width: 510px) {
+  .recipe-browser-main-container {
+    width: max(60%, 60%);
+
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(9, 275px);
+
+    gap: 30px;
+    padding: 30px;
+  }
+}
+@media (max-width: 475px) {
+  .recipe-browser-main-container {
+    width: max(70%, 70%);
+  }
+}
+@media (max-width: 400px) {
+  .recipe-browser-main-container {
+    width: max(90%, 90%);
+  }
+}
+@media (max-width: 325px) {
+  .recipe-browser-main-container {
+    gap: 20px;
+    padding: 20px;
+    padding-bottom: 30px;
+    padding-top: 30px;
   }
 }

@@ -22,4 +22,11 @@ export class MediaQueryService {
       moduleNamePlate.style.width = 'max(100%,100%)';
     }
   }
+
+  fullViewportWithoutScrollbarSetter() {
+    document.documentElement.style.setProperty(
+      '--scrollbar-width',
+      window.innerWidth - document.documentElement.clientWidth + 'px'
+    );
+  }
 }

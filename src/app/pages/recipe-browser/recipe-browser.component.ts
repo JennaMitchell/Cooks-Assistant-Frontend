@@ -95,6 +95,10 @@ export class RecipeBrowerComponent {
   }
 
   ngOnInit() {
+    document.documentElement.style.setProperty(
+      '--scrollbar-width',
+      window.innerWidth - document.documentElement.clientWidth + 'px'
+    );
     this.loggedInObserver$.subscribe((value) => {
       this.loggedIn = value;
     });
@@ -305,5 +309,8 @@ export class RecipeBrowerComponent {
   }
   recipeNavMenuClickHandler() {
     this.recipeNavMenuActive = !this.recipeNavMenuActive;
+  }
+  mobileRecipeNavMenuClickHandler() {
+    this.recipeNavMenuActive = false;
   }
 }

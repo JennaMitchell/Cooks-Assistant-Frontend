@@ -23,6 +23,7 @@ export class RecipeBrowerNavBarComponent {
 
   @Input('menuMoveOut') menuMoveOut = false;
   @Output() userSelectedTagsEvent = new EventEmitter<string[]>();
+  @Output() mobileRecipeNavMenuClickHandler = new EventEmitter();
 
   searchInputContainerActive = false;
 
@@ -68,6 +69,7 @@ export class RecipeBrowerNavBarComponent {
     },
   };
   starRatingObjectKeysArray: string[] = ['one', 'two', 'three', 'four', 'five'];
+  windowWidth310Pixels = false;
 
   titlesArrayCreator(data: any) {
     let tempArray: string[] = [];
@@ -76,8 +78,15 @@ export class RecipeBrowerNavBarComponent {
     });
     return tempArray;
   }
+  homepageWindowResizeHandler() {
+    this.windowWidth310Pixels = window.matchMedia('(max-width: 310px)').matches;
+  }
 
   ngOnInit() {
+    this.homepageWindowResizeHandler();
+    window.addEventListener('resize', () => {
+      this.homepageWindowResizeHandler();
+    });
     this.preferenceButtonTitles = this.titlesArrayCreator(preferenceButtonData);
 
     this.nationalityButtonTitles = this.titlesArrayCreator(
@@ -250,6 +259,10 @@ export class RecipeBrowerNavBarComponent {
     }
 
     this.userSelectedTagsEvent.emit(this.selectedSubDropDownsTags);
+  }
+
+  mobileButtonClickHandler() {
+    this.mobileRecipeNavMenuClickHandler.emit();
   }
 
   searchInputContainerClickHandler() {
