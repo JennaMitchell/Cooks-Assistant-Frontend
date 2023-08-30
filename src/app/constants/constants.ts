@@ -5,7 +5,7 @@ export interface ButtonDataInterface {
   altText: string;
 }
 
-export const databaseUrl = "https://cooks-assistant-app.herokuapp.com/";
+export const databaseUrl = "https://cooks-assistant-app.herokuapp.com";
 export const capitalLettersArray = [
   "A",
   "B",
